@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lakindu De Silva – QA Engineer portfolio. Manual & automated testing, Playwright, Postman, and more.">
+    <meta name="keywords" content="QA Portfolio, Lakindu De Silva, Quality Assurance, Software Testing, Playwright, Manual Testing, Automation">
+    <meta name="author" content="Lakindu De Silva">
+    <title>LAKINDU_OS // QA Engineer Portfolio</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #050505;
+            --term-green: #00ff41;
+            --term-dim: #008F11;
+            --term-bright: #00ff41;
+            --accent: #00ff41;
+            --accent-dim: rgba(0, 255, 65, 0.1);
+            --accent-glow: rgba(0, 255, 65, 0.3);
+            --text: #e0e0e0;
+            --text-dim: #808080;
+            --card-bg: rgba(0, 20, 0, 0.6);
+            --border: rgba(0, 255, 65, 0.2);
+            --warning: #ff6b00;
+            --error: #ff0040;
+            --success: #00ff41;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text);
+            font-family: 'Share Tech Mono', monospace;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* CRT Scanline Effect */
+        body::before {
+            content: "";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 2px;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+
+        /* Animated Scanline */
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            background: linear-gradient(0deg, rgba(0,0,0,0) 0%, var(--accent-dim) 50%, rgba(0,0,0,0) 100%);
+            opacity: 0.1;
+            position: fixed;
+            top: -100px;
+            left: 0;
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scanline {
+            0% { top: -100px; }
+            100% { top: 100%; }
+        }
+
+        /* Grid Background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(transparent 0%, rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, transparent 0%, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            transform: perspective(500px) rotateX(60deg) translateY(0) scale(2.5);
+            transform-origin: center top;
+            opacity: 0.3;
+            z-index: 0;
+            animation: gridMove 25s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 60px; }
+        }
+
+        /* HUD Header */
+        .hud-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(5, 5, 5, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            font-size: 0.85rem;
+        }
+
+        .hud-header .logo {
+            color: var(--term-green);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .hud-header .status {
+            display: flex;
+            gap: 30px;
+            color: var(--text-dim);
+        }
+
+        .hud-header .status span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hud-header .live {
+            color: var(--term-green);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Navigation */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .nav-menu a {
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 8px 15px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--term-green);
+            border-color: var(--border);
+            background: var(--accent-dim);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--term-green);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px 12px;
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 60px;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .profile-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 40px;
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid var(--term-green);
+            box-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(0, 255, 65, 0.15);
+            object-fit: cover;
+            object-position: center top;
+            filter: grayscale(10%) contrast(1.05);
+            transition: all 0.4s ease;
+        }
+
+        .profile-container::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            animation: pulse-ring 2s ease-out infinite;
+        }
+
+        .profile-container::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            border: 1px dashed rgba(0, 255, 65, 0.2);
+            animation: rotate-ring 20s linear infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.1); opacity: 0; }
+        }
+
+        @keyframes rotate-ring {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-pic:hover {
+            filter: grayscale(0%) contrast(1.1);
+            box-shadow: 0 0 60px var(--accent-glow), 0 0 100px rgba(0, 255, 65, 0.25);
+            transform: scale(1.03);
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            color: var(--term-green);
+            text-shadow: 0 0 30px var(--accent-glow);
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--text-dim);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--term-green);
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .hero-btn:hover {
+            background: var(--accent-dim);
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--term-green);
+            text-shadow: 0 0 20px var(--accent-glow);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .section-header p {
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Terminal Card */
+        .terminal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .terminal-card:hover {
+            border-color: var(--term-green);
+            box-shadow: 0 0 30px var(--accent-dim);
+        }
+
+        .terminal-header {
+            background: rgba(0, 255, 65, 0.05);
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .terminal-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27c93f; }
+
+        .terminal-title {
+            margin-left: 10px;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+
+        .terminal-body {
+            padding: 25px;
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--term-green);
+            box-shadow: 0 0 20px var(--accent-dim);
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--term-green);
+            text-shadow: 0 0 15px var(--accent-glow);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-dim);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        /* Skill Cards */
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--term-green);
+            background: var(--accent-dim);
+        }
+
+        .skill-card i {
+            font-size: 2rem;
+            color: var(--term-green);
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .skill-card h4 {
+            color: var(--text);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .skill-bar {
+            height: 4px;
+            background: rgba(0, 255, 65, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--term-green);
+            box-shadow: 0 0 10px var(--accent-glow);
+            transition: width 1.5s ease;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--term-green);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px var(--accent-dim);
+        }
+
+        .project-card .project-link {
+            color: var(--term-green);
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            color: var(--text);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background: var(--accent-dim);
+            border: 1px solid var(--border);
+            color: var(--term-green);
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            border-radius: 2px;
+        }
+
+        /* LinkedIn/Medium Cards */
+        .post-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .post-card:hover {
+            border-color: var(--term-green);
+            transform: translateY(-5px);
+        }
+
+        .post-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            filter: grayscale(30%) brightness(0.8);
+            transition: all 0.3s ease;
+        }
+
+        .post-card:hover img {
+            filter: grayscale(0%) brightness(1);
+        }
+
+        .post-card .post-content {
+            padding: 20px;
+        }
+
+        .post-card h4 {
+            color: var(--text);
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .post-card p {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .post-card .post-link {
+            color: var(--term-green);
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .post-card .post-link:hover {
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* Test Cards (What I Test For) */
+        .test-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .test-card:hover {
+            border-color: var(--term-green);
+            box-shadow: 0 0 30px var(--accent-dim);
+        }
+
+        .test-card .test-icon {
+            color: var(--term-green);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .test-card h4 {
+            color: var(--term-green);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .test-card p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-info {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 30px;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--term-green);
+            text-decoration: none;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .contact-btn:hover {
+            background: var(--accent-dim);
+            border-color: var(--term-green);
+        }
+
+        .contact-btn.linkedin { border-left: 3px solid #0077b5; }
+        .contact-btn.email { border-left: 3px solid var(--term-green); }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            color: var(--term-green);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: var(--accent-dim);
+            border-color: var(--term-green);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--term-green);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(0, 255, 65, 0.05);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--term-green);
+            box-shadow: 0 0 15px var(--accent-dim);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: var(--term-green);
+            border: none;
+            color: #000;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            box-shadow: 0 0 30px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        /* HUD Footer */
+        .hud-footer {
+            border-top: 1px solid var(--border);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 5, 5, 0.9);
+            backdrop-filter: blur(10px);
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .hud-footer .coords {
+            color: var(--term-green);
+        }
+
+        /* Highlight Keywords */
+        .highlight {
+            color: var(--term-green);
+            text-shadow: 0 0 5px var(--accent-glow);
+        }
+
+        /* Scroll to Top */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--term-green);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: var(--accent-dim);
+            border-color: var(--term-green);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-text {
+            color: var(--term-green);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .loading-bar {
+            width: 300px;
+            height: 4px;
+            background: rgba(0, 255, 65, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: var(--term-green);
+            box-shadow: 0 0 15px var(--accent-glow);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        .loading-percent {
+            color: var(--text-dim);
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hud-header {
+                padding: 10px 15px;
+            }
+            
+            .hud-header .status {
+                display: none;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding: 100px 15px 40px;
+            }
+            
+            .profile-pic {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hero-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hud-footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-text">INITIALIZING LAKINDU_OS...</div>
+        <div class="loading-bar">
+            <div class="loading-progress" id="loadingProgress"></div>
+        </div>
+        <div class="loading-percent" id="loadingPercent">0%</div>
+    </div>
+
+    <!-- Scanline Effect -->
+    <div class="scanline"></div>
+    
+    <!-- Grid Background -->
+    <div class="grid-bg"></div>
+
+    <!-- HUD Header -->
+    <header class="hud-header">
+        <div class="logo">LAKINDU_OS v2.0</div>
+        
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#linkedin">LinkedIn</a></li>
+                <li><a href="#medium">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="status">
+            <span>MEM: 64384K OK</span>
+            <span>NEURAL FEED // <span class="live">LIVE</span></span>
+        </div>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-container">
+                    <img src="media/profile new.jpeg" alt="Lakindu De Silva" class="profile-pic">
+                </div>
+                <h1>LAKINDU DE SILVA</h1>
+                <p class="subtitle">Manual precision. Automated efficiency. Consistent quality.</p>
+                
+                <div class="hero-buttons">
+                    <a href="https://www.linkedin.com/in/lakindu-de-silva-460581344/" target="_blank" class="hero-btn">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                    <a href="https://medium.com/@lakindudesilva007" target="_blank" class="hero-btn">
+                        <i class="fab fa-medium-m"></i> Medium
+                    </a>
+                    <a href="https://github.com/LakinduQA" target="_blank" class="hero-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>// ABOUT_ME</h2>
+                <p>Second-year Information Systems undergraduate with a passion for software quality and testing excellence.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <span class="terminal-dot red"></span>
+                        <span class="terminal-dot yellow"></span>
+                        <span class="terminal-dot green"></span>
+                        <span class="terminal-title">journey.log</span>
+                    </div>
+                    <div class="terminal-body">
+                        <h3 style="color: var(--term-green); margin-bottom: 15px;">My Journey</h3>
+                        <p>From an <span class="highlight">Information Systems</span> undergraduate to a passionate <span class="highlight">QA enthusiast</span>, I've embraced <span class="highlight">continuous learning</span> and <span class="highlight">hands-on practice</span> to build real-world <span class="highlight">testing skills</span>.</p>
+                    </div>
+                </div>
+
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <span class="terminal-dot red"></span>
+                        <span class="terminal-dot yellow"></span>
+                        <span class="terminal-dot green"></span>
+                        <span class="terminal-title">approach.config</span>
+                    </div>
+                    <div class="terminal-body">
+                        <h3 style="color: var(--term-green); margin-bottom: 15px;">My Approach</h3>
+                        <p>I combine <span class="highlight">curiosity</span> with <span class="highlight">discipline</span>, always eager to explore new <span class="highlight">tools, frameworks</span>, and <span class="highlight">testing strategies</span> while maintaining <span class="highlight">strong fundamentals</span>.</p>
+                    </div>
+                </div>
+
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <span class="terminal-dot red"></span>
+                        <span class="terminal-dot yellow"></span>
+                        <span class="terminal-dot green"></span>
+                        <span class="terminal-title">education.md</span>
+                    </div>
+                    <div class="terminal-body">
+                        <h3 style="color: var(--term-green); margin-bottom: 15px;">Education</h3>
+                        <p><strong>BSc in Information Technology for Business</strong></p>
+                        <p style="color: var(--term-green); font-size: 0.9rem;">NIBM • 2024 - 2028</p>
+                        <p style="margin-top: 10px;">Diploma with <span class="highlight">4.0 GPA</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number" id="projectCount">5+</span>
+                    <div class="stat-label">Active Projects</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="skillCount">24+</span>
+                    <div class="stat-label">Skills & Tools</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="monthsCount">7</span>
+                    <div class="stat-label">Months in QA</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <div class="stat-label">Commitment</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>// SKILLS_MATRIX</h2>
+                <p>Modern testing frameworks and tools I use to ensure software quality and reliability.</p>
+            </div>
+
+            <div class="grid-4">
+                <div class="skill-card">
+                    <i class="fas fa-cogs"></i>
+                    <h4>Playwright</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js"></i>
+                    <h4>JavaScript</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h4>Postman API</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-bolt"></i>
+                    <h4>JMeter</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-vial"></i>
+                    <h4>Test Automation</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h4>Agile/Scrum</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-tasks"></i>
+                    <h4>Jira</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-user-check"></i>
+                    <h4>Manual Testing</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-bug"></i>
+                    <h4>Security Testing</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-lock"></i>
+                    <h4>Burp Suite</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 65%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-git-alt"></i>
+                    <h4>Git/GitHub</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-linux"></i>
+                    <h4>WSL2/Linux</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h4>SQL</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-table"></i>
+                    <h4>Database Testing</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-html5"></i>
+                    <h4>HTML/CSS</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Info Security</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 65%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Test For Section -->
+    <section id="testing">
+        <div class="container">
+            <div class="section-header">
+                <h2>// TEST_PROTOCOLS</h2>
+                <p>Comprehensive testing approach covering all critical aspects of software quality assurance.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="test-card">
+                    <i class="fas fa-cogs test-icon"></i>
+                    <h4>Functionality</h4>
+                    <p>Comprehensive testing of <span class="highlight">features</span>, <span class="highlight">user workflows</span>, and <span class="highlight">business logic</span> to ensure applications meet requirements.</p>
+                </div>
+                <div class="test-card">
+                    <i class="fas fa-user-friends test-icon"></i>
+                    <h4>Usability</h4>
+                    <p><span class="highlight">User experience validation</span> through <span class="highlight">accessibility testing</span> and <span class="highlight">UI/UX evaluation</span>.</p>
+                </div>
+                <div class="test-card">
+                    <i class="fas fa-tachometer-alt test-icon"></i>
+                    <h4>Performance</h4>
+                    <p><span class="highlight">Load testing</span>, <span class="highlight">stress testing</span>, and <span class="highlight">performance monitoring</span> for optimal speed and scalability.</p>
+                </div>
+                <div class="test-card">
+                    <i class="fas fa-shield-alt test-icon"></i>
+                    <h4>Security</h4>
+                    <p><span class="highlight">Vulnerability assessments</span>, <span class="highlight">penetration testing</span>, and <span class="highlight">security validation</span> to protect user data.</p>
+                </div>
+                <div class="test-card">
+                    <i class="fas fa-mobile-alt test-icon"></i>
+                    <h4>Compatibility</h4>
+                    <p><span class="highlight">Cross-browser</span>, <span class="highlight">cross-platform</span>, and <span class="highlight">mobile responsiveness</span> testing.</p>
+                </div>
+                <div class="test-card">
+                    <i class="fas fa-robot test-icon"></i>
+                    <h4>Automation</h4>
+                    <p><span class="highlight">Automated test suite</span> development using modern frameworks like <span class="highlight">Playwright</span>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>// FEATURED_PROJECTS</h2>
+                <p>Quality-focused testing projects showcasing automation expertise and comprehensive test coverage.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="project-card">
+                    <a href="https://github.com/LakinduQA/STLC-Implementation---Sauce-Demo-E-commerce-Platform" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                    <h3>STLC Implementation – Sauce Demo</h3>
+                    <p>Complete <span class="highlight">Software Testing Life Cycle</span> implementation on the Sauce Demo e-commerce platform with end-to-end testing methodology.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">STLC</span>
+                        <span class="tech-tag">E-commerce</span>
+                        <span class="tech-tag">Test Planning</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <a href="https://github.com/LakinduQA/playwright_ifs.com" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                    <h3>E2E Automation Suite – ifs.com</h3>
+                    <p>Comprehensive <span class="highlight">end-to-end automation</span> using Playwright with MCP Server integration in WSL2/Linux environment.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Playwright</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">WSL2</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <a href="https://github.com/LakinduQA/ReqRes-Jmeter-Performance-Test" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                    <h3>ReqRes.com JMeter Test Suite</h3>
+                    <p><span class="highlight">Performance and functional</span> test suite using Apache JMeter with load testing and performance metrics.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">JMeter</span>
+                        <span class="tech-tag">Load Testing</span>
+                        <span class="tech-tag">API</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <a href="https://github.com/LakinduQA/hacker-news-sorting-test" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                    <h3>HackerNews Sorting Validation</h3>
+                    <p>Playwright tests validating <span class="highlight">100 articles</span> sorting from newest to oldest by <span class="highlight">timestamp</span>.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Playwright</span>
+                        <span class="tech-tag">Data Validation</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <a href="https://github.com/LakinduQA/Burp-Suite_JuiceShop_Security-Testing" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                    <h3>Security Testing – OWASP Juice Shop</h3>
+                    <p>Comprehensive <span class="highlight">security testing</span> using Burp Suite including IDOR, SQLi, and Data Leakage findings.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Burp Suite</span>
+                        <span class="tech-tag">OWASP</span>
+                        <span class="tech-tag">Security</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LinkedIn Section -->
+    <section id="linkedin">
+        <div class="container">
+            <div class="section-header">
+                <h2>// LINKEDIN_FEED</h2>
+                <p>Sharing knowledge, connecting with the QA community, and documenting my testing journey.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="post-card">
+                    <img src="media/Article Banners/IMG_9090.PNG" alt="Shift-Left Testing">
+                    <div class="post-content">
+                        <h4>Shift-Left and Shift-Right Testing in QAOps</h4>
+                        <p>Understanding the mindset shift for continuous quality through shift-left and shift-right testing methodologies...</p>
+                        <a href="https://www.linkedin.com/posts/lakindu-de-silva-460581344_shift-left-and-shift-right-testing-in-qaops-activity-7369297694583918603-0tuz" target="_blank" class="post-link">
+                            <i class="fab fa-linkedin"></i> View Post
+                        </a>
+                    </div>
+                </div>
+
+                <div class="post-card">
+                    <img src="media/Article Banners/IMG_9986.PNG" alt="Security Testing">
+                    <div class="post-content">
+                        <h4>Your App Works Fine. But Is It Safe?</h4>
+                        <p>Why security testing is non-negotiable for QA engineers. Understanding the critical importance of application security...</p>
+                        <a href="https://www.linkedin.com/posts/lakindu-de-silva-460581344_why-security-testing-is-non-negotiable-for-activity-7368899484270936070-on-0" target="_blank" class="post-link">
+                            <i class="fab fa-linkedin"></i> View Post
+                        </a>
+                    </div>
+                </div>
+
+                <div class="post-card">
+                    <img src="media/Article Banners/IMG_9647.PNG" alt="Think Like Users">
+                    <div class="post-content">
+                        <h4>Why QA Engineers Should Think Like Users</h4>
+                        <p>Exploring the mindset shift from requirement checking to understanding user experience...</p>
+                        <a href="https://www.linkedin.com/posts/lakindu-de-silva-460581344_why-qa-engineers-should-think-like-users-activity-7368506178466664449-5NvE" target="_blank" class="post-link">
+                            <i class="fab fa-linkedin"></i> View Post
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://www.linkedin.com/in/lakindu-de-silva-460581344" target="_blank" class="hero-btn">
+                    <i class="fab fa-linkedin"></i> Follow My Journey
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medium Blog Section -->
+    <section id="medium">
+        <div class="container">
+            <div class="section-header">
+                <h2>// MEDIUM_BLOG</h2>
+                <p>Deep dive into QA topics - comprehensive technical articles and detailed insights.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="post-card">
+                    <img src="media/Article Banners/IMG_9090.PNG" alt="Shift-Left Testing">
+                    <div class="post-content">
+                        <h4>Shift-Left and Shift-Right Testing in QAOps</h4>
+                        <p>Understanding the paradigm shift in testing methodologies and how it revolutionizes modern QAOps.</p>
+                        <a href="https://medium.com/@lakindudesilva007/shift-left-and-shift-right-testing-in-qaops-a-mindset-shift-for-continuous-quality-85ef943ed14f" target="_blank" class="post-link">
+                            <i class="fas fa-external-link-alt"></i> Read Article
+                        </a>
+                    </div>
+                </div>
+
+                <div class="post-card">
+                    <img src="media/Article Banners/IMG_9986.PNG" alt="Security Testing">
+                    <div class="post-content">
+                        <h4>Why Security Testing is Non-Negotiable</h4>
+                        <p>Exploring the critical importance of security testing in modern software development.</p>
+                        <a href="https://medium.com/@lakindudesilva007/why-security-testing-is-non-negotiable-for-qa-engineers-9dca25195021" target="_blank" class="post-link">
+                            <i class="fas fa-external-link-alt"></i> Read Article
+                        </a>
+                    </div>
+                </div>
+
+                <div class="post-card">
+                    <img src="media/Article Banners/IMG_9030.PNG" alt="Future of QA">
+                    <div class="post-content">
+                        <h4>The Future of QA in the Age of AI</h4>
+                        <p>Will AI replace testers or make us stronger? Analyzing the impact on the QA profession.</p>
+                        <a href="https://medium.com/@lakindudesilva007/the-future-of-qa-in-the-age-of-ai-will-ai-replace-testers-or-make-us-stronger-3cfb7fbcee43" target="_blank" class="post-link">
+                            <i class="fas fa-external-link-alt"></i> Read Article
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://medium.com/@lakindudesilva007" target="_blank" class="hero-btn">
+                    <i class="fab fa-medium-m"></i> Read More on Medium
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>// ESTABLISH_CONNECTION</h2>
+                <p>Ready to discuss testing opportunities and collaborate on quality assurance projects.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 style="color: var(--term-green); margin-bottom: 25px;">// DIRECT_CONTACT</h3>
+                    
+                    <a href="mailto:lakindudesilva007@gmail.com" class="contact-btn email">
+                        <i class="fas fa-envelope"></i> Email Me Directly
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/lakindu-de-silva-460581344" target="_blank" class="contact-btn linkedin">
+                        <i class="fab fa-linkedin"></i> Message on LinkedIn
+                    </a>
+                    
+                    <button onclick="copyEmail(event)" class="contact-btn" style="width: 100%; cursor: pointer; background: transparent; border: 1px solid var(--border);">
+                        <i class="fas fa-copy"></i> Copy Email Address
+                    </button>
+
+                    <div class="social-links">
+                        <a href="https://github.com/LakinduQA" target="_blank" class="social-btn">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/lakindu-de-silva-460581344" target="_blank" class="social-btn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://medium.com/@lakindudesilva007" target="_blank" class="social-btn">
+                            <i class="fab fa-medium-m"></i>
+                        </a>
+                        <a href="mailto:lakindudesilva007@gmail.com" class="social-btn">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+
+                    <div style="margin-top: 30px; padding: 15px; border: 1px solid var(--border); background: var(--accent-dim);">
+                        <i class="fas fa-wifi" style="color: var(--term-green); margin-right: 10px;"></i>
+                        All endpoints: <strong style="color: var(--term-green);">ONLINE</strong> | Response: <strong style="color: var(--term-green);">&lt;24h</strong>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3 style="color: var(--term-green); margin-bottom: 25px;">// SEND_MESSAGE</h3>
+                    
+                    <form action="https://formspree.io/f/xgvygjnd" method="POST" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="_replyto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="e.g., QA Opportunity, Collaboration">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        <input type="hidden" name="_subject" value="New contact from portfolio!">
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> TRANSMIT
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HUD Footer -->
+    <footer class="hud-footer">
+        <div>COORD: <span class="coords" id="coords">000, 000</span></div>
+        <div>© 2025 LAKINDU_OS // ALL SYSTEMS OPERATIONAL</div>
+        <div>SECURE CONNECTION</div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Loading Screen
+        (function() {
+            let progress = 0;
+            const loadingProgress = document.getElementById('loadingProgress');
+            const loadingPercent = document.getElementById('loadingPercent');
+            const loadingScreen = document.getElementById('loadingScreen');
+
+            // Fallback: Hide loading screen after 3 seconds no matter what
+            setTimeout(() => {
+                if (loadingScreen) {
+                    loadingScreen.classList.add('hidden');
+                }
+            }, 3000);
+
+            if (loadingProgress && loadingPercent && loadingScreen) {
+                const loadingInterval = setInterval(() => {
+                    progress += Math.random() * 20;
+                    if (progress > 100) progress = 100;
+                    
+                    loadingProgress.style.width = progress + '%';
+                    loadingPercent.textContent = Math.floor(progress) + '%';
+                    
+                    if (progress === 100) {
+                        clearInterval(loadingInterval);
+                        setTimeout(() => {
+                            loadingScreen.classList.add('hidden');
+                        }, 300);
+                    }
+                }, 80);
+            }
+        })();
+
+        // Mouse Coordinates
+        document.addEventListener('mousemove', (e) => {
+            document.getElementById('coords').textContent = 
+                e.clientX.toString().padStart(3, '0') + ', ' + e.clientY.toString().padStart(3, '0');
+        });
+
+        // Scroll to Top
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Copy Email
+        function copyEmail(e) {
+            const email = 'lakindudesilva007@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const btn = e ? e.target.closest('button') : document.querySelector('.contact-btn[onclick]');
+                if (btn) {
+                    const originalHTML = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    btn.style.borderColor = 'var(--term-green)';
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                        btn.style.borderColor = '';
+                    }, 2000);
+                }
+            }).catch(() => {
+                alert('Email: ' + email);
+            });
+        }
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            navMenu.style.position = 'absolute';
+            navMenu.style.top = '60px';
+            navMenu.style.right = '30px';
+            navMenu.style.flexDirection = 'column';
+            navMenu.style.background = 'rgba(5, 5, 5, 0.95)';
+            navMenu.style.padding = '15px';
+            navMenu.style.border = '1px solid var(--border)';
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Active Nav Link
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
