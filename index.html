@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lakindu De Silva – QA Engineer portfolio. Manual & automated testing, Playwright, Postman, and more.">
-    <title>Lakindu De Silva - QA Expert & Automation Engineer</title>
+    <title>Lakindu De Silva - QA & Automation Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -38,7 +38,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background */
         .bg-container {
             position: fixed;
             top: 0;
@@ -192,6 +191,7 @@
         }
 
         .scanner-text {
+            display: none !important;
             font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
             color: var(--text-muted);
@@ -241,6 +241,14 @@
             gap: 80px;
         }
 
+        /* control inner container layout so we can stack on mobile */
+        .hero .hero-container {
+            display: flex;
+            gap: 80px;
+            width: 100%;
+            align-items: flex-start;
+        }
+
         .hero-left {
             flex: 1;
             max-width: 700px;
@@ -265,6 +273,130 @@
 
         .identity::before {
             content: '';
+
+            /* Additional mobile refinements */
+            @media (max-width: 768px) {
+                /* Mobile nav open state */
+                .nav-links.open {
+                    display: flex !important;
+                    position: fixed;
+                    top: 60px;
+                    left: 0;
+                    right: 0;
+                    background: rgba(8,8,8,0.98);
+                    padding: 16px 20px;
+                    flex-direction: column;
+                    gap: 8px;
+                    border-top: 1px solid var(--border);
+                    z-index: 1100;
+                }
+
+                .nav-links.open a {
+                    padding: 12px 14px;
+                    border-radius: 8px;
+                    border: 1px solid transparent;
+                }
+
+                .hero { padding-top: 100px; }
+                .hero-left { padding: 0 6px; }
+                .hero-title { font-size: 34px; line-height: 1.05; }
+                .hero-right { width: 100%; max-width: 420px; }
+                .avatar { width: 140px; height: 140px; }
+
+                .article-card img { height: 160px; }
+                .article-content { padding: 18px; }
+
+                .skills-loop-container { padding: 12px 0; }
+                .skills-loop-track { animation: none !important; display: block; }
+                .skills-loop-list { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+                .skill-card { width: 80px; height: 80px; }
+
+                .timeline-item { margin-bottom: 30px; }
+
+                .terminal-body { padding: 20px; }
+                .terminal-input-area { padding: 12px; }
+                .terminal-input { font-size: 13px; }
+            }
+
+            /* Adjust hero content alignment on small/medium devices */
+            @media (max-width: 768px) {
+                .hero-left { text-align: center; }
+                .term-line { margin-left: auto; margin-right: auto; padding-left: 0; border-left: none; }
+                .term-prefix { display: none; }
+                .term-text { display: block; }
+                .profile-card { margin: 8px auto; }
+                .hero-right { margin-top: 0; }
+            }
+
+            /* Further mobile polish */
+            @media (max-width: 480px) {
+                .nav-fixed { height: 56px; padding: 0 14px; }
+                body { padding-top: 56px; }
+
+                .hero { padding-top: 80px; align-items: center; }
+                .hero-left { padding: 0 12px; }
+                .hero-right { width: 100%; max-width: 420px; margin: 18px auto 0; }
+
+                .profile-card { width: calc(100% - 28px); box-shadow: none; }
+                .profile-header { padding: 14px; }
+                .profile-body { padding: 16px; }
+
+                .article-card { margin-bottom: 18px; }
+                .article-card img { height: 150px; }
+
+                /* Make skills scroller horizontally scrollable on small screens */
+                .skills-loop-container { overflow-x: auto; }
+                .skills-loop-track { display: flex !important; width: max-content; animation: none !important; }
+                .skills-loop-list { display: flex; gap: 12px; padding: 12px; }
+
+                /* Reduce heavy animations for performance on small devices */
+                .cardFloat, .avatarPulse, .profile-card:hover { animation: none !important; }
+            }
+
+            /* Hero-specific mobile layout to match provided mock */
+            @media (max-width: 480px) {
+                .hero { padding-top: 40px; gap: 18px; }
+
+                .identity {
+                    display: inline-flex;
+                    margin: 6px auto 12px;
+                    padding: 8px 12px;
+                    border-radius: 20px;
+                    background: rgba(22,27,34,0.75);
+                    border: 1px solid rgba(255,255,255,0.03);
+                    font-size: 11px;
+                    letter-spacing: 1px;
+                    justify-content: center;
+                }
+
+                .hero-title {
+                    text-align: center;
+                    font-size: 34px;
+                    line-height: 1.05;
+                    margin-bottom: 10px;
+                }
+
+                .alert-box {
+                    margin: 12px auto;
+                    max-width: calc(100% - 28px);
+                    border-left: 3px solid var(--yellow);
+                    padding: 18px 20px;
+                }
+
+                .alert-icon { background: rgba(210,153,34,0.08); color: var(--yellow); border: 1.5px solid rgba(210,153,34,0.18); }
+
+                .term-line { padding-left: 14px; border-left-width: 3px; }
+
+                .buttons { width: 100%; display: flex; flex-direction: column; gap: 12px; align-items: center; }
+                .btn { width: calc(100% - 40px); max-width: 420px; border-radius: 8px; padding: 14px 18px; }
+                .btn.btn-secondary { background: rgba(22,27,34,0.85); }
+
+                .hero-right { margin-top: 8px; }
+                .profile-card { margin: 0 auto; width: calc(100% - 28px); border-radius: 12px; }
+
+                .profile-info .name { font-size: 14px; }
+                .exec-label { font-size: 11px; }
+            }
             width: 8px;
             height: 8px;
             background: var(--green);
@@ -284,13 +416,56 @@
         .hero-title span { display: block; }
 
         .alert-box {
-            background: linear-gradient(135deg, rgba(18, 22, 28, 0.95) 0%, rgba(22, 27, 34, 0.9) 100%);
-            border: 1px solid var(--border);
-            border-left: 3px solid var(--yellow);
-            border-radius: 10px;
-            padding: 24px 28px;
+            position: relative;
+            background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
+            border-radius: 16px;
+            padding: 26px 30px;
             margin-bottom: 30px;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 18px 60px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-left: 4px solid rgba(210,153,34,0.95);
+            backdrop-filter: blur(22px) saturate(140%);
+            -webkit-backdrop-filter: blur(22px) saturate(140%);
+            overflow: hidden;
+            transition: transform 0.28s cubic-bezier(.2,.9,.3,1), box-shadow 0.28s ease;
+        }
+
+        /* animated sheen overlay */
+        .alert-box::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: -30%;
+            width: 60%;
+            height: 180%;
+            background: linear-gradient(120deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.18) 25%, rgba(255,255,255,0.02) 35%, rgba(255,255,255,0.00) 60%);
+            transform: rotate(-18deg) translateX(-10%);
+            mix-blend-mode: overlay;
+            filter: blur(12px) saturate(120%);
+            opacity: 0.95;
+            pointer-events: none;
+            animation: sheenSlide 6s linear infinite;
+        }
+
+        .alert-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, rgba(88,166,255,0.28), rgba(63,185,80,0.24), rgba(210,153,34,0.26));
+            opacity: 1;
+            transform: translateY(-2px);
+            filter: blur(8px);
+            pointer-events: none;
+        }
+
+        @keyframes sheenSlide {
+            0% { transform: rotate(-18deg) translateX(-40%); opacity: 0; }
+            10% { opacity: 1; }
+            50% { transform: rotate(-18deg) translateX(40%); opacity: 0.9; }
+            100% { transform: rotate(-18deg) translateX(120%); opacity: 0; }
         }
 
         .alert-header {
@@ -301,17 +476,22 @@
         }
 
         .alert-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--yellow-dim);
-            border: 1.5px solid var(--yellow);
-            border-radius: 6px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--yellow);
-            font-size: 13px;
+            font-size: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.03);
+            backdrop-filter: blur(8px);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
+
+        .alert-icon:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 18px 46px rgba(0,0,0,0.6); }
 
         .alert-label {
             font-family: 'JetBrains Mono', monospace;
@@ -330,14 +510,23 @@
 
         .alert-title {
             font-size: 20px;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 6px 22px rgba(0,0,0,0.7);
+            letter-spacing: 0.2px;
         }
 
         .alert-text {
             font-size: 15px;
-            color: var(--text-dim);
+            color: rgba(255,255,255,0.92);
             line-height: 1.6;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+        }
+
+        .alert-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 30px 90px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
         }
 
         .hl { color: var(--green); }
@@ -534,8 +723,8 @@
         }
 
         .avatar {
-            width: 48px;
-            height: 48px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--green);
@@ -1384,9 +1573,13 @@
 
         .article-card img {
             width: 100%;
-            height: 180px;
+            height: 220px;
+            display: block;
             object-fit: cover;
-            filter: grayscale(20%) brightness(0.9);
+            object-position: center top;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            filter: grayscale(12%) brightness(0.88);
             transition: all 0.3s;
         }
 
@@ -1430,6 +1623,24 @@
         }
 
         .article-link:hover { text-decoration: underline; }
+
+        /* LinkedIn post small badge (green) */
+        .article-link .link-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            background: rgba(63, 185, 80, 0.06);
+            border: 1px solid rgba(63, 185, 80, 0.12);
+            color: var(--green);
+            border-radius: 4px;
+            margin-right: 8px;
+            font-size: 12px;
+        }
+
+        .article-link.linkedin-link { color: var(--green); }
+        .article-link.linkedin-link:hover .link-badge { background: var(--green-dim); box-shadow: 0 8px 24px rgba(63,185,80,0.06); }
 
         .section-cta {
             text-align: center;
@@ -1643,6 +1854,38 @@
             .timeline-card {
                 max-width: 100%;
             }
+        }
+
+        /* Improve timeline layout on small screens: align cards to the right of the vertical line */
+        @media (max-width: 768px) {
+            .timeline-container { padding-left: 18px; padding-right: 18px; }
+            .timeline-line { left: 28px; transform: none !important; z-index: 0; }
+            .timeline-progress { left: 28px; transform: none !important; z-index: 1; }
+            .timeline-dot { left: 28px; transform: translateX(-50%); z-index: 3; }
+
+            .timeline-item {
+                display: block;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                margin-bottom: 32px;
+            }
+
+            .timeline-card {
+                margin-left: 60px;
+                width: calc(100% - 72px);
+                text-align: left;
+                padding: 18px;
+                position: relative;
+                z-index: 2;
+            }
+
+            .timeline-item.right .timeline-card {
+                margin-left: 60px;
+            }
+
+            .timeline-item .timeline-icon { margin-bottom: 8px; }
+            /* ensure timeline tip is positioned correctly relative to the small progress bar */
+            .timeline-progress::after { left: 1px; transform: translateX(-50%); }
         }
 
         /* Scroll Reveal Animations */
@@ -2037,6 +2280,7 @@
         /* Responsive */
         @media (max-width: 1100px) {
             .hero { flex-direction: column; padding-top: 120px; gap: 50px; }
+            .hero .hero-container { flex-direction: column; gap: 28px; align-items: center; }
             .hero-left { max-width: 100%; }
             .hero-right { width: 100%; max-width: 400px; }
             .hero-title { font-size: 60px; }
@@ -2060,6 +2304,76 @@
 
         @media (max-width: 480px) {
             .skills-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Mobile-only adjustments: show profile card first, shrink banner and profile visuals */
+        @media (max-width: 768px) {
+            /* Ensure hero stacks vertically; profile card will be ordered to appear first visually */
+            .hero .hero-row {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 18px;
+            }
+
+            /* Bring profile to the top visually */
+            .hero-right {
+                /* place profile above the hero-left content */
+                order: -1;
+                width: 100%;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+
+            /* Reduce profile-card size for compact mobile */
+            .profile-card {
+                width: calc(100% - 28px);
+                border-radius: 12px;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            .profile-header { padding: 14px 16px; }
+            .avatar {
+                width: 140px;
+                height: 140px;
+                border-width: 2px;
+            }
+
+            .profile-info .name { font-size: 14px; }
+
+            /* Make alert box slightly smaller and keep readable */
+            .alert-box {
+                max-width: calc(100% - 36px);
+                padding: 16px 18px;
+                margin-top: 8px;
+            }
+
+            /* Shrink animated banner (uploaded image section) on mobile */
+            .animated-banner,
+            #animated-banner {
+                height: 56px !important;
+                overflow: hidden;
+            }
+            .animated-banner .banner-item .banner-text,
+            .animated-banner .layer-text,
+            #animated-banner .banner-text { font-size: 22px !important; line-height: 1; }
+
+            /* Reduce banner glint/mask intensity on mobile for clarity */
+            .banner-glint, .banner-mask { display: none; }
+
+            /* Tighten hero title spacing */
+            .hero-title { font-size: 36px; text-align: center; }
+
+            /* Buttons full width under profile */
+            .buttons { width: 100%; display:flex; flex-direction:column; gap:10px; align-items:center; }
+            .btn { width: calc(100% - 40px); }
+        }
+
+        /* Visual marker when banner is moved for mobile (helps debug ordering) */
+        .animated-banner.mobile-first {
+            outline: 3px solid rgba(63,185,80,0.85);
+            box-shadow: 0 10px 30px rgba(63,185,80,0.06);
         }
     </style>
 </head>
@@ -2102,18 +2416,17 @@
     <!-- Scanner -->
     <div class="scanner">
         <div class="scanner-dot"></div>
-        <div class="scanner-text">SCANNING SECTOR...</div>
         <div class="scanner-dots"><span></span><span></span><span></span></div>
     </div>
 
     <!-- HERO SECTION -->
     <section class="hero" id="home">
-        <div class="container" style="display: flex; gap: 80px; width: 100%;">
+        <div class="container hero-container">
             <div class="hero-left">
                 <div class="identity">IDENTITY: LAKINDU DE SILVA</div>
                 
                 <h1 class="hero-title">
-                    <span>QA Expert</span>
+                    <span>QA </span>
                     <span>& Automation</span>
                     <span>Engineer</span>
                 </h1>
@@ -2139,7 +2452,7 @@
                 <div class="buttons">
                     <a href="mailto:lakindudesilva007@gmail.com" class="btn btn-primary">CONTACT ME <i class="fas fa-arrow-right"></i></a>
                     <a href="https://github.com/LakinduQA" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GITHUB</a>
-                    <a href="https://www.linkedin.com/in/lakindu-de-silva-460581344/" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin-in"></i> LINKEDIN</a>
+                    <a href="https://www.linkedin.com/in/lakindu-de-silva" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin-in"></i> LINKEDIN</a>
                 </div>
             </div>
 
@@ -2201,6 +2514,176 @@
         </div>
     </section>
 
+    <!-- Scanner Banner (replicated animation from referenced site) -->
+    <section id="scanner-banner" class="scanner-banner">
+        <div class="banner-words" aria-hidden="true">
+            <span>Test Break Fix</span>
+            <span>Test Break Fix</span>
+            <span>Test Break Fix</span>
+            <span>Test Break Fix</span>
+        </div>
+
+        <div class="scanner-foreground">
+                <div class="scan-left">
+                <!-- scan icons removed -->
+                </div>
+        </div>
+
+        <style>
+            .scanner-banner {
+                    position: relative;
+                    width: 100%;
+                    height: 120px;
+                    overflow: hidden;
+                    background: linear-gradient(90deg, #151515 0%, #040404 100%);
+                    border-top: 1px solid rgba(255,255,255,0.02);
+                    border-bottom: 1px solid rgba(255,255,255,0.02);
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                }
+
+            .scanner-banner .banner-words {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                white-space: nowrap;
+                font-weight: 900;
+                font-size: 100px;
+                line-height: 1;
+                color: rgba(255,255,255,0.06); /* lighter so words are visible on dark background */
+                text-shadow: 0 6px 24px rgba(0,0,0,0.6); /* subtle depth for readability */
+                letter-spacing: 0px;
+                word-spacing: 0px;
+                text-transform: uppercase;
+                pointer-events: none;
+                animation: slideBanner 28s linear infinite;
+            }
+
+            .scanner-banner .banner-words span { padding-right: 20px; display: inline-block; margin-right: 0; }
+
+            @keyframes slideBanner {
+                0% { transform: translateX(0) translateY(-50%); }
+                100% { transform: translateX(-50%) translateY(-50%); }
+            }
+
+            .scanner-foreground { position: relative; z-index: 3; padding-left: 20px; }
+            .scan-left { display: flex; align-items: center; gap: 14px; }
+
+            .scan-dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #ffffff;
+                box-shadow: 0 0 12px rgba(255,255,255,0.95), 0 0 28px rgba(88,166,255,0.06);
+            }
+
+            .scan-meta { display:flex; flex-direction:column; gap:6px; }
+
+            .scanner-text {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 13px;
+                color: rgba(255,255,255,0.95);
+                letter-spacing: 1.2px;
+                font-weight: 600;
+                text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+            }
+
+            .scanner-dots { display:flex; gap:6px; margin-top:2px; }
+            .scanner-dots span {
+                width:8px; height:8px; border-radius:50%; background: rgba(255,255,255,0.22);
+                display:inline-block; transform-origin:center; animation: dotPulse 1.2s infinite ease-in-out;
+            }
+            .scanner-dots span:nth-child(2) { animation-delay: 0.15s; }
+            .scanner-dots span:nth-child(3) { animation-delay: 0.3s; }
+
+            @keyframes dotPulse {
+                0% { transform: translateY(0); opacity: 0.4; }
+                50% { transform: translateY(-6px); opacity: 1; }
+                100% { transform: translateY(0); opacity: 0.4; }
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 1100px) {
+                .scanner-banner { height: 100px; }
+                .scanner-banner .banner-words { font-size: 80px; }
+            }
+            @media (max-width: 768px) {
+                .scanner-banner { height: 80px; }
+                .scanner-banner .banner-words { font-size: 48px; letter-spacing: 2px; }
+                .scanner-foreground { padding-left: 12px; }
+            }
+        </style>
+
+        <script>
+            // Small script to slightly randomize the dot glow and add keyboard pause (space)
+            (function(){
+                const banner = document.getElementById('scanner-banner');
+                const bannerWords = banner && banner.querySelector('.banner-words');
+                let paused = false;
+                window.addEventListener('keydown', (e) => {
+                    if (e.code === 'Space') {
+                        e.preventDefault();
+                        paused = !paused;
+                        if (bannerWords) bannerWords.style.animationPlayState = paused ? 'paused' : 'running';
+                    }
+                });
+            })();
+        </script>
+
+    <script>
+        // Robustly move animated banner above the hero on small screens and restore on desktop
+        (function(){
+            const banner = document.getElementById('animated-banner');
+            const hero = document.querySelector('.hero');
+            if (!banner || !hero) return;
+
+            const originalParent = banner.parentNode;
+            const originalNext = banner.nextElementSibling;
+            let moved = false;
+
+            function place() {
+                try {
+                    if (window.innerWidth <= 768) {
+                        if (!moved) {
+                            hero.parentNode.insertBefore(banner, hero);
+                            moved = true;
+                        }
+                    } else {
+                        if (moved) {
+                            if (originalNext && originalParent.contains(originalNext)) {
+                                originalParent.insertBefore(banner, originalNext);
+                            } else {
+                                originalParent.appendChild(banner);
+                            }
+                            moved = false;
+                        }
+                    }
+                } catch (e) {
+                    // ignore transient DOM timing errors
+                }
+            }
+
+            // Run on multiple lifecycle events and retry a few times in case of late DOM inserts
+            document.addEventListener('DOMContentLoaded', place);
+            window.addEventListener('load', place);
+            window.addEventListener('resize', () => requestAnimationFrame(place));
+
+            let attempts = 0;
+            const retry = setInterval(() => {
+                place();
+                attempts += 1;
+                if (attempts > 8) clearInterval(retry);
+            }, 250);
+
+            // Observe DOM changes to catch dynamically inserted banner/hero
+            const mo = new MutationObserver(() => place());
+            mo.observe(document.body, { childList: true, subtree: true });
+        })();
+    </script>
+    </section>
+
     <!-- ABOUT SECTION -->
     <section id="about">
         <div class="container">
@@ -2255,13 +2738,10 @@
                     <span class="stat-label">Skills & Tools</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-value" data-target="7">7</span>
-                    <span class="stat-label">Months in QA</span>
+                    <span class="stat-value" data-target="120">120+</span>
+                    <span class="stat-label">Automated Tests</span>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-value" data-target="100">100%</span>
-                    <span class="stat-label">Commitment</span>
-                </div>
+                    <!-- '100% Commitment' stat removed per request -->
             </div>
         </div>
     </section>
@@ -2287,6 +2767,8 @@
                             <li class="skill-card"><i class="fas fa-robot"></i><span class="skill-label">Automation</span></li>
                             <li class="skill-card"><i class="fas fa-sync-alt"></i><span class="skill-label">Agile</span></li>
                             <li class="skill-card"><i class="fab fa-jira"></i><span class="skill-label">Jira</span></li>
+                            <li class="skill-card"><i class="fab fa-github"></i><span class="skill-label">GitHub Actions</span></li>
+                            <li class="skill-card"><i class="fab fa-docker"></i><span class="skill-label">Docker</span></li>
                             <li class="skill-card"><i class="fas fa-hand-pointer"></i><span class="skill-label">Manual QA</span></li>
                             <li class="skill-card"><i class="fas fa-wind"></i><span class="skill-label">Zephyr</span></li>
                             <li class="skill-card"><i class="fas fa-user-secret"></i><span class="skill-label">Security</span></li>
@@ -2301,6 +2783,7 @@
                             <li class="skill-card"><i class="fas fa-robot"></i><span class="skill-label">Automation</span></li>
                             <li class="skill-card"><i class="fas fa-sync-alt"></i><span class="skill-label">Agile</span></li>
                             <li class="skill-card"><i class="fab fa-jira"></i><span class="skill-label">Jira</span></li>
+                            <li class="skill-card"><i class="fab fa-docker"></i><span class="skill-label">Docker</span></li>
                             <li class="skill-card"><i class="fas fa-hand-pointer"></i><span class="skill-label">Manual QA</span></li>
                             <li class="skill-card"><i class="fas fa-wind"></i><span class="skill-label">Zephyr</span></li>
                             <li class="skill-card"><i class="fas fa-user-secret"></i><span class="skill-label">Security</span></li>
@@ -2508,13 +2991,60 @@
         </div>
     </section>
 
+    <!-- LINKEDIN JOURNEY SECTION -->
+    <section id="linkedin">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">// LINKEDIN_JOURNEY</div>
+                <h2 class="section-title">LinkedIn Journey</h2>
+                <p class="section-desc">Short reflections and posts shared on LinkedIn.</p>
+            </div>
+
+            <div class="articles-grid">
+                <div class="article-card">
+                    <img src="https://media.licdn.com/dms/image/v2/D5622AQEmoUO8uRFxsw/feedshare-shrink_800/B56Zj_bM_eG0Ak-/0/1756631983686?e=1768435200&v=beta&t=S5PYNdpsvuS-p-_PKNfSWGWtzkBmfZ9-JeF5L4xJ8Oc" alt="From QA to QE">
+                    <div class="article-content">
+                        <div class="article-platform">LINKEDIN</div>
+                        <h4>From Quality Assurance to Quality Engineering</h4>
+                        <p>Why shifting perspective helps build stronger products.</p>
+                        <a href="https://www.linkedin.com/posts/lakindu-de-silva_from-quality-assurance-to-quality-engineering-activity-7367848560391880705-mhAF?utm_medium=ios_app&rcm=ACoAAFY5zUgB9oVNc4iiB9PVHXuku8WFsYFPXac&utm_source=social_share_send&utm_campaign=copy_link" target="_blank" class="article-link linkedin-link"><span class="link-badge"><i class="fas fa-external-link-alt"></i></span> Read Post</a>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <img src="https://media.licdn.com/dms/image/v2/D5622AQE9gLwi_xKJzQ/feedshare-shrink_800/B56ZkIxUIJHkAk-/0/1756788772253?e=1768435200&v=beta&t=jrmF1pHmy45cqHwRxgd1xfVj8d7-FQcd2OUm6GpCFvU" alt="Think Like Users">
+                    <div class="article-content">
+                        <div class="article-platform">LINKEDIN</div>
+                        <h4>Why QA Engineers Should Think Like Users</h4>
+                        <p>Designing tests from a user-centric perspective improves outcomes.</p>
+                        <a href="https://www.linkedin.com/posts/lakindu-de-silva_why-qa-engineers-should-think-like-users-activity-7368506178466664449-BauS?utm_medium=ios_app&rcm=ACoAAFY5zUgB9oVNc4iiB9PVHXuku8WFsYFPXac&utm_source=social_share_send&utm_campaign=copy_link" target="_blank" class="article-link linkedin-link"><span class="link-badge"><i class="fas fa-external-link-alt"></i></span> Read Post</a>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <img src="https://media.licdn.com/dms/image/v2/D5622AQE5nlNj4NN_0Q/feedshare-shrink_800/B56Zpri5MbHYAg-/0/1762740901606?e=1768435200&v=beta&t=yDnpdOz58Vcwp30uRPOlgaC5UwkA2kThp7wQcsL6eaM" alt="Continuous Testing">
+                    <div class="article-content">
+                        <div class="article-platform">LINKEDIN</div>
+                        <h4>QA & Continuous Testing</h4>
+                        <p>Thoughts on continuous testing and keeping quality in the pipeline.</p>
+                        <a href="https://www.linkedin.com/posts/lakindu-de-silva_qa-qualityassurance-continuoustesting-activity-7393471221729824770-LzuZ?utm_medium=ios_app&rcm=ACoAAFY5zUgB9oVNc4iiB9PVHXuku8WFsYFPXac&utm_source=social_share_send&utm_campaign=copy_link" target="_blank" class="article-link linkedin-link"><span class="link-badge"><i class="fas fa-external-link-alt"></i></span> Read Post</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-cta">
+                <a href="https://www.linkedin.com/in/lakindu-de-silva" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin-in"></i> View More on LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
     <!-- HOW I WORK SECTION -->
     <section id="process" class="timeline-section">
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">// MY_PROCESS</div>
                 <h2 class="section-title">How I Work<span class="hl">|</span></h2>
-                <p class="section-desc">From bug discovery to quality assurance. A systematic approach to software testing.</p>
+                <p class="section-desc">Structured QA process from discovery to delivery — pragmatic testing, automation, and verification to ensure production-ready software.</p>
             </div>
 
             <div class="timeline-container">
@@ -2527,7 +3057,7 @@
                     <div class="timeline-card">
                         <div class="timeline-icon blue"><i class="fas fa-search"></i></div>
                         <h3>Identify</h3>
-                        <p>Understand requirements and identify critical test scenarios. What needs testing and what's the priority?</p>
+                        <p>Gather requirements, acceptance criteria, and risk areas to define focused testing goals and scope.</p>
                     </div>
                 </div>
 
@@ -2538,7 +3068,7 @@
                         <div class="timeline-badge">test_planning</div>
                         <div class="timeline-icon purple"><i class="fas fa-flask"></i></div>
                         <h3>Research</h3>
-                        <p>Deep dive into system architecture, existing bugs, and edge cases. Analyze test coverage gaps.</p>
+                        <p>Analyze system architecture, data flows, and past defects to uncover edge cases and coverage gaps.</p>
                     </div>
                 </div>
 
@@ -2548,7 +3078,7 @@
                     <div class="timeline-card">
                         <div class="timeline-icon yellow"><i class="fas fa-drafting-compass"></i></div>
                         <h3>Design</h3>
-                        <p>Create comprehensive test cases, test data, and automation framework architecture.</p>
+                        <p>Author clear test cases, test data, and automation plans aligned to acceptance criteria and risk.</p>
                     </div>
                 </div>
 
@@ -2559,7 +3089,7 @@
                         <div class="timeline-badge">test_execution</div>
                         <div class="timeline-icon cyan"><i class="fas fa-play-circle"></i></div>
                         <h3>Execute</h3>
-                        <p>Run manual & automated tests. Use Playwright, Postman, and JMeter to validate functionality.</p>
+                        <p>Execute exploratory, manual, and automated tests (Playwright, Postman, JMeter). Validate behavior and capture logs/traces.</p>
                     </div>
                 </div>
 
@@ -2569,7 +3099,7 @@
                     <div class="timeline-card">
                         <div class="timeline-icon pink"><i class="fas fa-bug"></i></div>
                         <h3>Report</h3>
-                        <p>Document bugs with detailed reproduction steps. Track issues in Jira with severity classification.</p>
+                        <p>Log reproducible defects with steps, evidence, and severity. Triage and correlate failures to root causes.</p>
                     </div>
                 </div>
 
@@ -2580,7 +3110,7 @@
                         <div class="timeline-badge">quality_assured</div>
                         <div class="timeline-icon green"><i class="fas fa-check-circle"></i></div>
                         <h3>Deliver</h3>
-                        <p>Verify fixes, run regression tests, and sign off on quality. Ensure zero critical bugs at release.</p>
+                        <p>Verify fixes, run regression suites, confirm release readiness, and sign off with test evidence and metrics.</p>
                     </div>
                 </div>
             </div>
@@ -2699,15 +3229,31 @@
             });
         });
 
-        // Mobile menu toggle
+        // Mobile menu toggle (uses CSS .open state)
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.querySelector('.nav-links');
-        
+
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
         mobileMenuBtn.addEventListener('click', () => {
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
-            } else {
-                navLinks.style.cssText = 'display: flex; position: absolute; top: 60px; right: 20px; flex-direction: column; background: rgba(10,10,10,0.98); padding: 20px; border: 1px solid #1e2228; border-radius: 8px; gap: 5px;';
+            const isOpen = navLinks.classList.toggle('open');
+            mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        // Close mobile nav when a nav link is clicked
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // Ensure nav closes when resizing to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
             }
         });
 
@@ -2718,8 +3264,8 @@
 
         const commands = {
             'email': '📧 Email: <a href="mailto:lakindudesilva007@gmail.com">lakindudesilva007@gmail.com</a><br>Feel free to reach out anytime!',
-            'connect': '🔗 LinkedIn: <a href="https://www.linkedin.com/in/lakindu-de-silva-460581344" target="_blank">linkedin.com/in/lakindu-de-silva-460581344</a><br>Let\'s connect!',
-            'linkedin': '🔗 LinkedIn: <a href="https://www.linkedin.com/in/lakindu-de-silva-460581344" target="_blank">linkedin.com/in/lakindu-de-silva-460581344</a><br>Let\'s connect!',
+            'connect': '🔗 LinkedIn: <a href="https://www.linkedin.com/in/lakindu-de-silva" target="_blank">linkedin.com/in/lakindu-de-silva</a><br>Let\'s connect!',
+            'linkedin': '🔗 LinkedIn: <a href="https://www.linkedin.com/in/lakindu-de-silva" target="_blank">linkedin.com/in/lakindu-de-silva</a><br>Let\'s connect!',
             'github': '💻 GitHub: <a href="https://github.com/LakinduQA" target="_blank">github.com/LakinduQA</a><br>Check out my projects!',
             'medium': '📝 Medium: <a href="https://medium.com/@lakindudesilva007" target="_blank">medium.com/@lakindudesilva007</a><br>Read my QA articles!',
             'help': '📋 Available commands:<br>• email - Get my email address<br>• connect / linkedin - LinkedIn profile<br>• github - GitHub profile<br>• medium - My blog articles<br>• skills - My expertise<br>• hire - Hire me for your project',
@@ -2848,6 +3394,44 @@
         window.addEventListener('scroll', animateTimelineLine);
         window.addEventListener('load', animateTimelineLine);
         window.addEventListener('resize', animateTimelineLine);
+    </script>
+    <script>
+    // Ensure the animated banner appears before the hero on small screens
+    (function(){
+        const banner = document.getElementById('animated-banner');
+        const hero = document.getElementById('home');
+        if(!banner || !hero) return;
+        const parent = hero.parentNode;
+        const MOBILE_QUERY = '(max-width: 768px)';
+        const mql = window.matchMedia(MOBILE_QUERY);
+
+        function debounce(fn, wait){ let t; return function(){ clearTimeout(t); t = setTimeout(() => fn(), wait); }; }
+
+        function moveForMobile(){
+            try{
+                if(mql.matches){
+                    if(parent.firstElementChild !== banner){ parent.insertBefore(banner, hero); }
+                    banner.classList.add('mobile-first');
+                } else {
+                    if(hero.nextSibling !== banner){ parent.insertBefore(banner, hero.nextSibling); }
+                    banner.classList.remove('mobile-first');
+                }
+            }catch(e){/* noop */}
+        }
+
+        // Initial and deferred attempts in case of late DOM changes
+        moveForMobile();
+        setTimeout(moveForMobile, 50);
+        setTimeout(moveForMobile, 300);
+
+        if (mql.addEventListener) mql.addEventListener('change', moveForMobile);
+        else if (mql.addListener) mql.addListener(moveForMobile);
+        window.addEventListener('resize', debounce(moveForMobile, 120));
+        window.addEventListener('orientationchange', moveForMobile);
+
+        const mo = new MutationObserver(() => { setTimeout(moveForMobile, 60); });
+        mo.observe(parent, { childList: true });
+    })();
     </script>
 </body>
 </html>
