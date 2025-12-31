@@ -57,7 +57,9 @@ Add the following SEO tags to your HTML <head> section:
 ```
 
 ---
+## Landing Page
 
+-  Same as the reference website but with QA stats (Playwright test execution and passed in a terminal -> then load to the index)
 
 ## Cleanup Instructions
 
