@@ -221,8 +221,12 @@
         }
 
         .page-title .hl {
-            color: var(--green);
+            color: var(--text);
         }
+
+        /* Decrypt effect (minimal and color-safe) */
+        .dec-char { display: inline-block; line-height: 1; white-space: pre; }
+        .dec-char.dec-done { color: inherit; }
 
         .page-desc {
             font-size: 16px;
@@ -568,7 +572,7 @@
 
     <!-- Navigation -->
     <nav class="nav-fixed">
-        <a href="index.html" class="nav-logo">LAKINDU_OS v2.0</a>
+        <a href="index.html" class="nav-logo">LAKINDU_QA v2.0</a>
         <ul class="nav-links">
             <li><a href="index.html#home">Home</a></li>
             <li><a href="index.html#about">About</a></li>
@@ -589,7 +593,7 @@
         <div class="container">
             <div class="page-header">
                 <div class="page-tag">// ALL_ARTICLES</div>
-                <h1 class="page-title">Articles & Insights<span class="hl">|</span></h1>
+                <h1 class="page-title" data-decrypt="true"><span>Articles</span> <span>&</span> <span>Insights</span></h1>
                 <p class="page-desc">Thoughts on QA engineering, test automation, security testing, and the evolving world of software quality.</p>
             </div>
 
@@ -621,10 +625,61 @@
 
     <!-- Footer -->
     <footer class="footer-bar">
-        <div class="footer-center">© 2025 LAKINDU_OS // ALL SYSTEMS OPERATIONAL</div>
+        <div class="footer-center">© 2026 LAKINDU_QA // ALL SYSTEMS OPERATIONAL</div>
     </footer>
 
     <script>
+        // Static articles to always show (Test Automation series)
+        const staticArticles = [
+            {
+                // third-last (append first among static so it becomes third-from-last)
+                title: 'Playwright vs Cypress vs Selenium: Choosing the Right Test Automation Tool in 2025',
+                link: 'https://medium.com/@lakindudesilva007/playwright-vs-cypress-vs-selenium-choosing-the-right-test-automation-tool-in-2025-9e2093d1b2de',
+                thumbnail: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*RpZcht8dtKaVtqFIgqzjAQ@2x.jpeg',
+                pubDate: '2025-11-19T00:00:00Z',
+                description: 'A comparison of popular end-to-end testing tools and recommendations for 2025.',
+                categories: ['Test Automation']
+            },
+            {
+                // second-last
+                title: 'Understanding Automation Scope: What Should You Automate?',
+                link: 'https://medium.com/@lakindudesilva007/understanding-automation-scope-what-should-you-automate-d8be92df2d56',
+                thumbnail: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*F8He6ulFDDpuMlhnPtej9g@2x.jpeg',
+                pubDate: '2025-11-18T00:00:00Z',
+                description: 'Guidance on deciding what to automate, ROI considerations, and practical heuristics.',
+                categories: ['Test Automation']
+            },
+            {
+                // last
+                title: 'What Is Test Automation?',
+                link: 'https://medium.com/@lakindudesilva007/what-is-test-automation-e521afd8cbaf',
+                thumbnail: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*exwJRuKBCPi-jRoFlN48qw@2x.jpeg',
+                pubDate: '2025-11-17T00:00:00Z',
+                description: 'A gentle introduction to what test automation is, why teams adopt it, and common misconceptions.',
+                categories: ['Test Automation']
+            }
+        ];
+
+        function renderStaticArticles() {
+            const articlesGrid = document.getElementById('articlesGrid');
+            const loadingState = document.getElementById('loadingState');
+            const mediumCta = document.getElementById('mediumCta');
+            if (!articlesGrid) return;
+
+            // Show grid and hide loading so static cards are visible immediately
+            loadingState.style.display = 'none';
+            articlesGrid.style.display = 'grid';
+            mediumCta.style.display = 'block';
+
+            staticArticles.forEach((article, index) => {
+                const card = createArticleCard(article, index);
+                articlesGrid.appendChild(card);
+            });
+
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+            }, 100);
+        }
         // Fetch Medium Articles via RSS to JSON
         async function fetchMediumArticles() {
             const loadingState = document.getElementById('loadingState');
@@ -638,12 +693,37 @@
                 const data = await response.json();
 
                 if (data.status === 'ok' && data.items && data.items.length > 0) {
+                    // If static articles were not already rendered, ensure grid visible
                     loadingState.style.display = 'none';
                     articlesGrid.style.display = 'grid';
                     mediumCta.style.display = 'block';
 
+                    // Build a set of static links to avoid duplicates, and RSS links for later checks
+                    const staticLinks = new Set(staticArticles.map(a => a.link));
+                    const rssLinks = new Set(data.items.map(i => i.link));
                     data.items.forEach((article, index) => {
+                        // Skip the specific unwanted post by title (substring match)
+                        try {
+                            const unwantedSubstring = 'MCP in Testing';
+                            if (article.title && article.title.includes(unwantedSubstring)) {
+                                return; // skip this article
+                            }
+                        } catch (e) {
+                            // if anything goes wrong checking title, continue normally
+                        }
+
+                        // Avoid duplicating static articles (match by link)
+                        if (article.link && staticLinks.has(article.link)) return;
+
                         const card = createArticleCard(article, index);
+                        articlesGrid.appendChild(card);
+                    });
+
+                    // After RSS items, append static articles so they appear last
+                    staticArticles.forEach((sArticle, sIndex) => {
+                        // If RSS already contains the static article, skip it
+                        if (rssLinks.has(sArticle.link)) return;
+                        const card = createArticleCard(sArticle, data.items.length + sIndex);
                         articlesGrid.appendChild(card);
                     });
 
@@ -659,6 +739,24 @@
                 loadingState.style.display = 'none';
                 errorState.style.display = 'block';
                 mediumCta.style.display = 'block';
+                // Even if fetching fails, append static articles so they appear at the end
+                try {
+                    const staticLinks = new Set(staticArticles.map(a => a.link));
+                    staticArticles.forEach((sArticle, sIndex) => {
+                        if (staticLinks.has(sArticle.link)) {
+                            const card = createArticleCard(sArticle, sIndex);
+                            articlesGrid.appendChild(card);
+                        } else {
+                            const card = createArticleCard(sArticle, sIndex);
+                            articlesGrid.appendChild(card);
+                        }
+                    });
+                    setTimeout(() => {
+                        document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+                    }, 100);
+                } catch (e) {
+                    // swallow
+                }
             }
         }
 
@@ -667,9 +765,10 @@
             card.className = 'article-card reveal';
             card.style.transitionDelay = `${index * 0.1}s`;
 
-            // Extract thumbnail from content
+            // Extract thumbnail from content (guard when content is missing)
             let thumbnail = '';
-            const imgMatch = article.content.match(/<img[^>]+src="([^">]+)"/);
+            const contentHtml = (article.content || '');
+            const imgMatch = contentHtml.match(/<img[^>]+src="([^"]+?)"/);
             if (imgMatch) {
                 thumbnail = imgMatch[1];
             } else if (article.thumbnail) {
@@ -715,8 +814,86 @@
             return card;
         }
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', fetchMediumArticles);
+        // Decrypt engine for page title (minimal, avoids changing colors)
+        const _decGlyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{};:,.<>/?\\|';
+
+        function runDecryptForArticlesTitle() {
+            const el = document.querySelector('.page-title[data-decrypt]');
+            if (!el) return;
+            if (el._dec_animating) return; // don't overlap
+            const hl = el.querySelector('.hl');
+
+            // Ensure we have the original text stored so repeats are consistent
+            if (!el.dataset.decOriginal) {
+                let orig = '';
+                [...el.childNodes].forEach(node => {
+                    if (node === hl) return;
+                    orig += node.textContent || '';
+                });
+                el.dataset.decOriginal = orig.trim();
+            }
+
+            const original = el.dataset.decOriginal || '';
+            const finals = Array.from(original);
+
+            // Remove existing non-hl nodes
+            [...el.childNodes].forEach(node => { if (node === hl) return; el.removeChild(node); });
+
+            // Rebuild heading with per-char spans (spaces preserved as text nodes)
+            finals.forEach(ch => {
+                if (ch === ' ') {
+                    el.appendChild(document.createTextNode(' '));
+                } else {
+                    const s = document.createElement('span');
+                    s.className = 'dec-char';
+                    s.textContent = '';
+                    el.appendChild(s);
+                }
+            });
+
+            if (hl) el.appendChild(hl);
+
+            const charEls = el.querySelectorAll('.dec-char');
+            let charIdx = 0;
+            el._dec_animating = true;
+            let maxTimeout = 0;
+
+            finals.forEach((ch, idx) => {
+                if (ch === ' ') return;
+                const span = charEls[charIdx++];
+                const iv = setInterval(() => {
+                    span.textContent = _decGlyphs[Math.floor(Math.random() * _decGlyphs.length)];
+                }, 40);
+                const finishAt = 200 + idx * 45;
+                maxTimeout = Math.max(maxTimeout, finishAt);
+                setTimeout(() => {
+                    clearInterval(iv);
+                    span.textContent = ch;
+                    span.classList.add('dec-done');
+                    span.style.color = 'inherit';
+                }, finishAt);
+            });
+
+            // Clear animating flag after last char finalizes
+            setTimeout(() => { el._dec_animating = false; }, maxTimeout + 80);
+        }
+
+        // Initialize: fetch Medium articles first, then append static articles
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchMediumArticles();
+            // Set up observer to re-run decrypt when heading re-enters viewport
+            const el = document.querySelector('.page-title[data-decrypt]');
+            if (el) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) runDecryptForArticlesTitle();
+                    });
+                }, { threshold: 0.35 });
+                observer.observe(el);
+                // Run once on load
+                runDecryptForArticlesTitle();
+            }
+        });
 
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');

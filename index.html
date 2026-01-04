@@ -1,12 +1,64 @@
 <!DOCTYPE html> 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lakindu De Silva – QA Engineer portfolio. Manual & automated testing, Playwright, Postman, and more.">
-    <title>Lakindu De Silva - QA & Automation Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Lakindu De Silva – QA Engineer portfolio. Manual & automated testing, Playwright, Postman, and more." />
+        <meta name="keywords" content="QA Portfolio, Lakindu De Silva, Quality Assurance, Software Testing, Playwright, Manual Testing, Automation, lakinduqa.github.io" />
+        <meta name="author" content="Lakindu De Silva" />
+        <meta name="google-site-verification" content="dO4eFPMtvHbfTNPqoY8zkGnM1XNC778ci9Ug_Z_XPsU" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta name="description" content="Lakindu De Silva – QA Engineer portfolio. Manual & automated testing, Playwright, Postman, and more." />
+        <meta name="keywords" content="QA Portfolio, Lakindu De Silva, Quality Assurance, Software Testing, Playwright, Manual Testing, Automation, lakinduqa.github.io" />
+        <meta name="author" content="Lakindu De Silva" />
+        <meta name="google-site-verification" content="dO4eFPMtvHbfTNPqoY8zkGnM1XNC778ci9Ug_Z_XPsU" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://lakinduqa.github.io/" />
+        <meta property="og:title" content="Lakindu De Silva – QA Engineer Portfolio" />
+        <meta property="og:description" content="QA Engineer specializing in manual & automated testing, Playwright, Postman, and security testing. Building quality software through comprehensive testing." />
+        <meta property="og:image" content="https://lakinduqa.github.io/media/IMG_9736.jpeg" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://lakinduqa.github.io/" />
+        <meta property="twitter:title" content="Lakindu De Silva – QA Engineer Portfolio" />
+        <meta property="twitter:description" content="QA Engineer specializing in manual & automated testing, Playwright, Postman, and security testing." />
+        <meta property="twitter:image" content="https://lakinduqa.github.io/media/IMG_9736.jpeg" />
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'></text></svg>" />
+
+        <!-- Font Awesome (icons) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <title>Lakindu De Silva – QA Portfolio</title>
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Lakindu De Silva",
+                "jobTitle": "QA Engineer",
+                "description": "Quality Assurance Engineer specializing in manual and automated testing",
+                "url": "https://lakinduqa.github.io/",
+                "sameAs": [
+                    "https://github.com/LakinduQA",
+                    "https://www.linkedin.com/in/lakindu-de-silva"
+                ],
+                "knowsAbout": [
+                    "Software Testing",
+                    "Test Automation",
+                    "Playwright",
+                    "JavaScript",
+                    "Security Testing",
+                    "Performance Testing"
+                ]
+            }
+        </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -75,6 +127,8 @@
             top: 0;
             left: 0;
             right: 0;
+            width: 100vw;
+            max-width: 100vw;
             height: 60px;
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(20px);
@@ -82,8 +136,9 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 40px;
+            padding: 0 16px;
             z-index: 1000;
+            box-sizing: border-box;
         }
 
         .nav-logo {
@@ -154,6 +209,8 @@
             padding: 8px 12px;
             cursor: pointer;
             border-radius: 4px;
+            margin-left: 0;
+            margin-right: 0;
         }
 
         /* Scanner */
@@ -225,7 +282,25 @@
         section {
             position: relative;
             z-index: 1;
-            padding: 100px 50px;
+            padding: 160px 50px; /* increased vertical spacing between sections */
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+
+        /* Responsive section spacing */
+        @media (max-width: 1100px) {
+            section { padding: 120px 36px; margin-top: 20px; margin-bottom: 20px; }
+            .hero { padding-bottom: 120px; }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 90px 28px; margin-top: 18px; margin-bottom: 18px; }
+            .hero { padding-bottom: 90px; }
+        }
+
+        @media (max-width: 480px) {
+            section { padding: 60px 20px; margin-top: 14px; margin-bottom: 14px; }
+            .hero { padding-bottom: 60px; }
         }
 
         .container {
@@ -238,6 +313,7 @@
             min-height: 100vh;
             display: flex;
             padding-top: 140px;
+            padding-bottom: 180px; /* extra space below hero to separate next section */
             gap: 80px;
         }
 
@@ -273,50 +349,12 @@
 
         .identity::before {
             content: '';
-
-            /* Additional mobile refinements */
-            @media (max-width: 768px) {
-                /* Mobile nav open state */
-                .nav-links.open {
-                    display: flex !important;
-                    position: fixed;
-                    top: 60px;
-                    left: 0;
-                    right: 0;
-                    background: rgba(8,8,8,0.98);
-                    padding: 16px 20px;
-                    flex-direction: column;
-                    gap: 8px;
-                    border-top: 1px solid var(--border);
-                    z-index: 1100;
-                }
-
-                .nav-links.open a {
-                    padding: 12px 14px;
-                    border-radius: 8px;
-                    border: 1px solid transparent;
-                }
-
-                .hero { padding-top: 100px; }
-                .hero-left { padding: 0 6px; }
-                .hero-title { font-size: 34px; line-height: 1.05; }
-                .hero-right { width: 100%; max-width: 420px; }
-                .avatar { width: 140px; height: 140px; }
-
-                .article-card img { height: 160px; }
-                .article-content { padding: 18px; }
-
-                .skills-loop-container { padding: 12px 0; }
-                .skills-loop-track { animation: none !important; display: block; }
-                .skills-loop-list { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-                .skill-card { width: 80px; height: 80px; }
-
-                .timeline-item { margin-bottom: 30px; }
-
-                .terminal-body { padding: 20px; }
-                .terminal-input-area { padding: 12px; }
-                .terminal-input { font-size: 13px; }
-            }
+            width: 8px;
+            height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--green);
+        }
 
             /* Adjust hero content alignment on small/medium devices */
             @media (max-width: 768px) {
@@ -326,6 +364,12 @@
                 .term-text { display: block; }
                 .profile-card { margin: 8px auto; }
                 .hero-right { margin-top: 0; }
+                     /* Make skills scroller horizontally scrollable on small and medium screens
+                         Keep the CSS animation enabled on these breakpoints so the logo loop runs
+                         while still allowing touch pan interaction. */
+                     .skills-loop-container { overflow-x: auto; -webkit-overflow-scrolling: touch; touch-action: pan-x; }
+                     .skills-loop-track { display: flex !important; width: max-content; /* animation preserved from desktop rules */ will-change: transform; }
+                     .skills-loop-list { display: flex; gap: 12px; padding: 12px; }
             }
 
             /* Further mobile polish */
@@ -345,8 +389,9 @@
                 .article-card img { height: 150px; }
 
                 /* Make skills scroller horizontally scrollable on small screens */
-                .skills-loop-container { overflow-x: auto; }
-                .skills-loop-track { display: flex !important; width: max-content; animation: none !important; }
+                .skills-loop-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+                .skills-loop-track { display: flex !important; width: max-content; animation: logoLoop 40s linear infinite !important; will-change: transform; }
+                .skills-loop-track.reverse { animation: logoLoopReverse 35s linear infinite !important; }
                 .skills-loop-list { display: flex; gap: 12px; padding: 12px; }
 
                 /* Reduce heavy animations for performance on small devices */
@@ -373,7 +418,7 @@
                     text-align: center;
                     font-size: 34px;
                     line-height: 1.05;
-                    margin-bottom: 10px;
+                    margin-bottom: 22px; /* slightly larger mobile spacing */
                 }
 
                 .alert-box {
@@ -405,15 +450,26 @@
         }
 
         .hero-title {
-            font-size: 80px;
+            font-size: 140px;
             font-weight: 700;
             line-height: 1.0;
-            margin-bottom: 50px;
+            margin-bottom: 24px; /* reduced gap between title and alert */
             letter-spacing: -3px;
             color: #fff;
         }
 
-        .hero-title span { display: block; }
+          .hero-title span { display: block; }
+
+        /* Small gap between the two lines of the title (not too large) */
+        .hero-title span + span { margin-top: 8px; }
+
+        /* Mobile-only title: hidden by default on desktop */
+        .hero-title-mobile { display: none; }
+
+        /* Desktop: keep the first title span on a single line to avoid odd breaks */
+        @media (min-width: 769px) {
+            .hero-title span:first-child { white-space: nowrap; display: inline-block; }
+        }
 
         .alert-box {
             position: relative;
@@ -621,7 +677,7 @@
 
         .profile-card {
             background: linear-gradient(135deg, rgba(22, 27, 34, 0.8) 0%, rgba(13, 17, 23, 0.9) 100%);
-            border: 1px solid rgba(63, 185, 80, 0.2);
+                border: 1px solid rgba(63, 185, 80, 0.2);
             border-radius: 14px;
             overflow: hidden;
             backdrop-filter: blur(20px);
@@ -837,7 +893,7 @@
             transition: all 0.3s ease;
         }
 
-        .protocol-item:hover::before {
+            .protocol-item:hover::before {
             transform: scale(1.3);
             box-shadow: 0 0 15px rgba(63, 185, 80, 0.5);
         }
@@ -1351,7 +1407,7 @@
         .project-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 14px;
+                border-radius: 14px;
             padding: 28px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -1743,6 +1799,16 @@
             transform: translateX(-50%);
             z-index: 2;
             box-shadow: 0 0 15px rgba(63, 185, 80, 0.4);
+        }
+
+        /* Hide decorative green timeline dots inside the How I Work section */
+        #process .timeline-dot {
+            display: none !important;
+        }
+
+        /* Also hide the glowing tip if present */
+        #process .timeline-progress::after {
+            display: none !important;
         }
 
         .timeline-item:hover .timeline-dot {
@@ -2283,18 +2349,20 @@
             .hero .hero-container { flex-direction: column; gap: 28px; align-items: center; }
             .hero-left { max-width: 100%; }
             .hero-right { width: 100%; max-width: 400px; }
-            .hero-title { font-size: 60px; }
+            .hero-title { font-size: 72px; }
             .about-grid, .projects-grid, .articles-grid { grid-template-columns: 1fr 1fr; }
             .section-title { font-size: 36px; }
         }
 
         @media (max-width: 768px) {
             section { padding: 60px 20px; }
-            .nav-fixed { padding: 0 20px; }
-            .nav-links, .nav-status { display: none; }
-            .mobile-menu-btn { display: block; }
+            .nav-fixed { padding: 0 4vw; width: 100vw; max-width: 100vw; left: 0; right: 0; box-sizing: border-box; }
+            .nav-links { display: none; background: rgba(8,8,8,0.98); position: fixed; top: 60px; left: 0; right: 0; flex-direction: column; gap: 8px; border-top: 1px solid var(--border); z-index: 1100; }
+            .nav-links.open { display: flex !important; }
+            .nav-status { display: none; }
+            .mobile-menu-btn { display: block; margin-left: 0; margin-right: 0; }
             .scanner { display: none; }
-            .hero-title { font-size: 42px; letter-spacing: -1px; }
+            .hero-title { font-size: 52px; letter-spacing: -1px; }
             .buttons { flex-direction: column; }
             .btn { width: 100%; justify-content: center; }
             .about-grid, .projects-grid, .articles-grid { grid-template-columns: 1fr; }
@@ -2363,17 +2431,115 @@
             .banner-glint, .banner-mask { display: none; }
 
             /* Tighten hero title spacing */
-            .hero-title { font-size: 36px; text-align: center; }
+            .hero-title { font-size: 44px; text-align: center; }
 
             /* Buttons full width under profile */
             .buttons { width: 100%; display:flex; flex-direction:column; gap:10px; align-items:center; }
             .btn { width: calc(100% - 40px); }
         }
 
+        /* How I Work - mobile corrections inserted here to ensure proper alignment */
+        @media (max-width: 768px) {
+            #process {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            #process .section-header {
+                padding: 0;
+                text-align: left;
+            }
+            #process .section-title {
+                font-size: 32px;
+                margin-bottom: 8px;
+                text-align: left;
+            }
+            #process .section-desc {
+                padding: 0 0 12px 0;
+                max-width: 680px;
+                color: var(--text-dim);
+            }
+            .timeline-container { padding: 0 12px; }
+            .timeline-card { max-width: 100%; margin-left: 0; margin-right: 0; padding: 18px; }
+            .timeline-line { left: 20px !important; transform: none; }
+            .timeline-progress { left: 20px !important; transform: none; }
+            .timeline-dot { left: 20px !important; transform: none; }
+
+            /* Stack cards on the right of the line for mobile */
+            .timeline-container { padding-left: 48px; padding-right: 20px; }
+            .timeline-item {
+                display: block !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                margin-bottom: 22px;
+            }
+            .timeline-item.left, .timeline-item.right {
+                justify-content: flex-start !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            .timeline-card {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                max-width: calc(100% - 64px) !important;
+                width: auto !important;
+            }
+            .timeline-item.right .timeline-card, .timeline-item.left .timeline-card {
+                text-align: left !important;
+            }
+
+            /* Show mobile hero title and hide desktop title on small screens */
+            .hero-title-mobile { display: block !important; font-size: 40px; margin: 0 0 14px 0; }
+            .hero-title-desktop { display: none !important; }
+
+            /* Reduce avatar size to avoid footer appearing inside image */
+            .avatar { width: 120px !important; height: 120px !important; }
+            .profile-card { overflow: hidden; }
+        }
+
         /* Visual marker when banner is moved for mobile (helps debug ordering) */
         .animated-banner.mobile-first {
             outline: 3px solid rgba(63,185,80,0.85);
             box-shadow: 0 10px 30px rgba(63,185,80,0.06);
+        }
+
+        /* Ensure mobile title appears above profile on small screens */
+        @media (max-width: 768px) {
+            .hero .hero-title-mobile { display: block !important; order: -2; width: 100%; text-align: center; margin: 0 0 14px 0; font-size: 40px; }
+            .hero-title-desktop { display: none !important; }
+            .hero .hero-container { display: flex; flex-direction: column; }
+        }
+
+        /* Desktop: increase gap between left title and alert box */
+        @media (min-width: 769px) {
+            .hero-left .hero-title { margin-bottom: 24px; }
+        }
+
+        /* Extra-large desktop title for wide screens */
+        @media (min-width: 1200px) {
+            .hero-left .hero-title { font-size: 60px; line-height: 1.02; }
+        }
+
+        /* Hide identity badge on desktop (keep visible on mobile) */
+        @media (min-width: 769px) {
+            .identity { display: none !important; }
+        }
+
+        /* Mobile-only: adjustable top padding and top offset for the profile/hero-right section
+           - Edit `--hero-top-padding` to change the overall top padding of the hero on mobile.
+           - Edit `--profile-top-offset` to nudge the profile column down from the top (positive px moves it down).
+           - Applies only on screens <= 768px. */
+        @media (max-width: 768px) {
+            .hero {
+                --hero-top-padding: 20px; /* default hero top padding on mobile (adjust as needed) */
+                --profile-top-offset: 6px; /* small nudge for profile column */
+                padding-top: var(--hero-top-padding) !important;
+            }
+
+            /* Ensure left/right stack aligns to the top of the hero area */
+            .hero .hero-container { display: flex; flex-direction: column; align-items: flex-start !important; }
+
+            /* Pull profile area toward the top; adjustable via --profile-top-offset */
+            .hero-right { margin-top: var(--profile-top-offset) !important; align-self: stretch !important; }
         }
     </style>
 </head>
@@ -2397,8 +2563,8 @@
 
     <!-- Fixed Navigation -->
     <nav class="nav-fixed">
-        <div class="nav-logo">LAKINDU_OS v2.0</div>
-        <ul class="nav-links">
+        <div class="nav-logo" style="color: var(--green); font-weight: bold; font-family: 'JetBrains Mono', monospace;">LAKINDU_QA v2.0</div>
+        <ul class="nav-links" id="main-navigation">
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -2410,7 +2576,7 @@
             <span>MEM: 64384K OK</span>
             <span>NEURAL FEED // <span class="live">LIVE</span></span>
         </div>
-        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-controls="main-navigation" aria-expanded="false" style="color: var(--green); background: none; border: 1px solid var(--green);"><i class="fas fa-bars"></i></button>
     </nav>
 
     <!-- Scanner -->
@@ -2421,16 +2587,38 @@
 
     <!-- HERO SECTION -->
     <section class="hero" id="home">
+
+        <div class="identity">IDENTITY: LAKINDU DE SILVA</div>
         <div class="container hero-container">
+            <!-- Mobile-only hero title inserted so the QA & Automation text appears at top on small screens -->
+            
+            <h1 class="hero-title hero-title-mobile" data-decrypt="true">
+                <span>QA &</span>
+                <span>Automation</span>
+                <span>Engineer</span>
+            </h1>
             <div class="hero-left">
-                <div class="identity">IDENTITY: LAKINDU DE SILVA</div>
                 
-                <h1 class="hero-title">
-                    <span>QA </span>
-                    <span>& Automation</span>
+                
+                <h1 class="hero-title hero-title-desktop" data-decrypt="true">
+                    <span>QA & </span>
+                    <span> Automation</span>
                     <span>Engineer</span>
                 </h1>
 
+                <style>
+                /* Decrypting text animation styles - ensure per-character spans remain inline inside hero titles */
+                .dec-char { display: inline-block !important; white-space: pre; will-change: contents; line-height: 1; vertical-align: baseline; }
+                .hero-title .dec-char { display: inline-block !important; }
+                .dec-char.dec-done { color: inherit; }
+
+                /* animated spacer between segments (for headings like 'Who I Am') */
+                .dec-space { display: inline-block; width: 0; transition: width 280ms ease; vertical-align: middle; }
+                .dec-space.expand { width: 0.45em; }
+                .hero-seg { display: inline-block; }
+                </style>
+
+                
                 <div class="alert-box">
                     <div class="alert-header">
                         <div class="alert-icon"><i class="fas fa-exclamation-triangle"></i></div>
@@ -2450,7 +2638,7 @@
                 </div>
 
                 <div class="buttons">
-                    <a href="mailto:lakindudesilva007@gmail.com" class="btn btn-primary">CONTACT ME <i class="fas fa-arrow-right"></i></a>
+                    <a href="mailto:lakindudesilva007@gmail.com" class="btn btn-primary">CONTACT ME</a>
                     <a href="https://github.com/LakinduQA" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GITHUB</a>
                     <a href="https://www.linkedin.com/in/lakindu-de-silva" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin-in"></i> LINKEDIN</a>
                 </div>
@@ -2459,7 +2647,7 @@
             <div class="hero-right">
                 <div class="profile-card">
                     <div class="profile-header">
-                        <img src="media/profile new.jpeg" alt="Lakindu" class="avatar">
+                        <img src="media/IMG_9736.jpeg" alt="Lakindu" class="avatar">
                         <div class="profile-info">
                             <div class="lbl">QA_ENGINEER</div>
                             <div class="name">Lakindu De Silva</div>
@@ -2477,7 +2665,7 @@
                             <div class="protocol-subs">
                                 <div class="sub">Functional Testing</div>
                                 <div class="sub">Exploratory Testing</div>
-                                <div class="sub">Regression Testing</div>
+                                <div class="sub">Usability Testing</div>
                             </div>
                         </div>
 
@@ -2496,12 +2684,13 @@
                         <div class="protocol-item">
                             <div class="protocol-head">
                                 <i class="fas fa-shield-alt protocol-icon b"></i>
-                                <span class="protocol-title">SECURITY_TESTING</span>
+                                <span class="protocol-title">PERFORMANCE_TESTING</span>
                             </div>
                             <div class="protocol-subs">
-                                <div class="sub">Vulnerability Assessment</div>
-                                <div class="sub">Penetration Testing</div>
-                                <div class="sub">OWASP Standards</div>
+                                <div class="sub">Load Testing
+</div>
+                                <div class="sub">Stress Testing</div>
+                                <div class="sub">Performance Monitoring</div>
                             </div>
                         </div>
                     </div>
@@ -2689,7 +2878,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">// ABOUT_ME</div>
-                <h2 class="section-title">Who I Am</h2>
+                <h2 class="section-title" data-decrypt="true"><span>Who</span> <span>I</span> <span>Am</span></h2>
                 <p class="section-desc">Second-year Information Systems undergraduate with a passion for software quality.</p>
             </div>
 
@@ -2724,22 +2913,22 @@
                         <span class="about-card-title">education.md</span>
                     </div>
                     <h3>Education</h3>
-                    <p><strong>BSc in Information Technology</strong><br><span class="hl">NIBM • 2024 - 2028</span><br>Diploma with <span class="hl">4.0 GPA</span></p>
+                    <p><strong>Currently pursuing HND in Information Systems</strong><br><span class="hl">2025 - 2026</span><br>Successfully completed Diploma in Management Information Systems with <span class="hl">4.0 GPA</span> (2024 - 2025)</p>
                 </div>
             </div>
 
             <div class="stats-flow">
                 <div class="stat-item">
-                    <span class="stat-value" data-target="5">5+</span>
+                    <span class="stat-value" data-target="5" data-decrypt="true">6+</span>
                     <span class="stat-label">Active Projects</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-value" data-target="24">24+</span>
+                    <span class="stat-value" data-target="26" data-decrypt="true">26+</span>
                     <span class="stat-label">Skills & Tools</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-value" data-target="120">120+</span>
-                    <span class="stat-label">Automated Tests</span>
+                    <span class="stat-value" data-target="200" data-decrypt="true">200+</span>
+                    <span class="stat-label"> Hands-on QA Hours</span>
                 </div>
                     <!-- '100% Commitment' stat removed per request -->
             </div>
@@ -2751,7 +2940,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">// SKILLS_MATRIX</div>
-                <h2 class="section-title">Technical Arsenal</h2>
+                <h2 class="section-title" data-decrypt="true"><span>Technical</span> <span>Arsenal</span></h2>
                 <p class="section-desc">Modern testing frameworks and tools for software quality.</p>
             </div>
 
@@ -2761,34 +2950,147 @@
                     <div class="skills-loop-track">
                         <ul class="skills-loop-list">
                             <li class="skill-card"><i class="fas fa-theater-masks"></i><span class="skill-label">Playwright</span></li>
-                            <li class="skill-card"><i class="fab fa-js-square"></i><span class="skill-label">JavaScript</span></li>
-                            <li class="skill-card"><i class="fas fa-paper-plane"></i><span class="skill-label">Postman</span></li>
-                            <li class="skill-card"><i class="fas fa-tachometer-alt"></i><span class="skill-label">JMeter</span></li>
-                            <li class="skill-card"><i class="fas fa-robot"></i><span class="skill-label">Automation</span></li>
-                            <li class="skill-card"><i class="fas fa-sync-alt"></i><span class="skill-label">Agile</span></li>
-                            <li class="skill-card"><i class="fab fa-jira"></i><span class="skill-label">Jira</span></li>
-                            <li class="skill-card"><i class="fab fa-github"></i><span class="skill-label">GitHub Actions</span></li>
-                            <li class="skill-card"><i class="fab fa-docker"></i><span class="skill-label">Docker</span></li>
-                            <li class="skill-card"><i class="fas fa-hand-pointer"></i><span class="skill-label">Manual QA</span></li>
-                            <li class="skill-card"><i class="fas fa-wind"></i><span class="skill-label">Zephyr</span></li>
-                            <li class="skill-card"><i class="fas fa-user-secret"></i><span class="skill-label">Security</span></li>
-                            <li class="skill-card"><i class="fas fa-spider"></i><span class="skill-label">Burp Suite</span></li>
-                            <li class="skill-card"><i class="fab fa-git-alt"></i><span class="skill-label">Git</span></li>
+                           <li class="skill-card"><i class="fab fa-js-square"></i><span class="skill-label">JavaScript</span></li>
+                           <li class="skill-card"><i class="fas fa-paper-plane"></i><span class="skill-label">Postman API</span></li>
+                           <li class="skill-card"><i class="fas fa-tachometer-alt"></i><span class="skill-label">JMeter</span></li>
+                           <li class="skill-card"><i class="fas fa-robot"></i><span class="skill-label">Test Automation</span></li>
+                            <li class="skill-card">
+                                <span style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="7" cy="7" r="2.5" fill="white"/>
+                                        <circle cx="17" cy="7" r="2.5" fill="white"/>
+                                        <circle cx="17" cy="17" r="2.5" fill="white"/>
+                                        <rect x="9.5" y="6.25" width="5" height="1.5" rx="0.75" fill="white"/>
+                                        <rect x="16.25" y="9.5" width="1.5" height="5" rx="0.75" fill="white"/>
+                                    </svg>
+                                </span>
+                                <span class="skill-label">Agile</span>
+                            </li>
+                            <li class="skill-card">
+                                <span style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Kite body (all white, scaled for 24x24) -->
+                                        <polygon points="12,3 21,12 12,21 3,12" fill="white"/>
+                                        <polygon points="12,3 21,12 12,12" fill="white"/>
+                                        <polygon points="12,3 12,12 3,12" fill="white"/>
+                                        <polygon points="3,12 12,21 12,12" fill="white"/>
+                                        <polygon points="21,12 12,21 12,12" fill="white"/>
+                                        <!-- Kite tail (white, scaled) -->
+                                        <polyline points="12,21 10.5,23 12,24 13.5,23 12,21" fill="none" stroke="white" stroke-width="1"/>
+                                    </svg>
+                                </span>
+                                <span class="skill-label">Jira</span>
+                            </li>
+                           <li class="skill-card"><i class="fas fa-user-check"></i><span class="skill-label">Manual Testing</span></li>
+                           <li class="skill-card">
+                               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto;">
+                                   <polyline points="18,10 23,15 28,10" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                   <polyline points="13,18 18,23 28,13" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                               </svg>
+                               <span class="skill-label">Zephyr</span>
+                           </li>
+                           <li class="skill-card"><i class="fas fa-spider"></i><span class="skill-label">Security Testing</span></li>
+                           <li class="skill-card">
+                               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto;">
+                                   <rect x="8" y="14" width="16" height="12" rx="3" fill="white"/>
+                                   <rect x="14" y="20" width="4" height="4" rx="2" fill="#0a0a0a"/>
+                                   <path d="M12 14v-3a4 4 0 1 1 8 0v3" stroke="white" stroke-width="2.5" fill="none"/>
+                               </svg>
+                               <span class="skill-label">Burp Suite</span>
+                           </li>
+                           <li class="skill-card"><i class="fab fa-git-alt"></i><span class="skill-label">Git</span></li>
+                           <li class="skill-card"><i class="fab fa-github"></i><span class="skill-label">GitHub</span></li>
+                           <li class="skill-card"><i class="fab fa-github"></i><span class="skill-label">GitHub Actions</span></li>
+                           <li class="skill-card"><i class="fab fa-docker"></i><span class="skill-label">Docker</span></li>
+                           <li class="skill-card"><i class="fab fa-linux"></i><span class="skill-label">WSL2</span></li>
+                            <li class="skill-card">
+                                <span style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="6" y="6" width="12" height="2" rx="1" fill="white"/>
+                                        <rect x="6" y="10" width="12" height="2" rx="1" fill="white"/>
+                                        <rect x="6" y="14" width="12" height="2" rx="1" fill="white"/>
+                                    </svg>
+                                </span>
+                                <span class="skill-label">SDLC</span>
+                            </li>
+                           <li class="skill-card"><i class="fas fa-vial"></i><span class="skill-label">STLC</span></li>
                         </ul>
                         <ul class="skills-loop-list" aria-hidden="true">
                             <li class="skill-card"><i class="fas fa-theater-masks"></i><span class="skill-label">Playwright</span></li>
-                            <li class="skill-card"><i class="fab fa-js-square"></i><span class="skill-label">JavaScript</span></li>
-                            <li class="skill-card"><i class="fas fa-paper-plane"></i><span class="skill-label">Postman</span></li>
-                            <li class="skill-card"><i class="fas fa-tachometer-alt"></i><span class="skill-label">JMeter</span></li>
-                            <li class="skill-card"><i class="fas fa-robot"></i><span class="skill-label">Automation</span></li>
-                            <li class="skill-card"><i class="fas fa-sync-alt"></i><span class="skill-label">Agile</span></li>
-                            <li class="skill-card"><i class="fab fa-jira"></i><span class="skill-label">Jira</span></li>
-                            <li class="skill-card"><i class="fab fa-docker"></i><span class="skill-label">Docker</span></li>
-                            <li class="skill-card"><i class="fas fa-hand-pointer"></i><span class="skill-label">Manual QA</span></li>
-                            <li class="skill-card"><i class="fas fa-wind"></i><span class="skill-label">Zephyr</span></li>
-                            <li class="skill-card"><i class="fas fa-user-secret"></i><span class="skill-label">Security</span></li>
-                            <li class="skill-card"><i class="fas fa-spider"></i><span class="skill-label">Burp Suite</span></li>
-                            <li class="skill-card"><i class="fab fa-git-alt"></i><span class="skill-label">Git</span></li>
+                           <li class="skill-card"><i class="fab fa-js-square"></i><span class="skill-label">JavaScript</span></li>
+                           <li class="skill-card"><i class="fas fa-paper-plane"></i><span class="skill-label">Postman API</span></li>
+                           <li class="skill-card">
+                               <span style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                       <!-- Feather shape for JMeter, white only -->
+                                       <path d="M5 22C10 10 19 2 20 2C21 2 22 3 22 4C22 5 14 14 7 21C6.5 21.5 5.5 22 5 22Z" fill="white"/>
+                                       <path d="M5 22C6 20 10 13 17 6" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+                                       <path d="M8 18L12 14" stroke="white" stroke-width="1" stroke-linecap="round"/>
+                                   </svg>
+                               </span>
+                               <span class="skill-label">JMeter</span>
+                           </li>
+                           <li class="skill-card"><i class="fas fa-robot"></i><span class="skill-label">Test Automation</span></li>
+                            <li class="skill-card">
+                                <span style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="7" cy="7" r="2.5" fill="white"/>
+                                        <circle cx="17" cy="7" r="2.5" fill="white"/>
+                                        <circle cx="17" cy="17" r="2.5" fill="white"/>
+                                        <rect x="9.5" y="6.25" width="5" height="1.5" rx="0.75" fill="white"/>
+                                        <rect x="16.25" y="9.5" width="1.5" height="5" rx="0.75" fill="white"/>
+                                    </svg>
+                                </span>
+                                <span class="skill-label">Agile</span>
+                            </li>
+                            <li class="skill-card">
+                                <span style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Kite body (all white) -->
+                                        <polygon points="14,4 24,14 14,24 4,14" fill="white"/>
+                                        <polygon points="14,4 24,14 14,14" fill="white"/>
+                                        <polygon points="14,4 14,14 4,14" fill="white"/>
+                                        <polygon points="4,14 14,24 14,14" fill="white"/>
+                                        <polygon points="24,14 14,24 14,14" fill="white"/>
+                                        <!-- Kite tail (white) -->
+                                        <polyline points="14,24 12,26 14,28 16,26 14,24" fill="none" stroke="white" stroke-width="1.2"/>
+                                    </svg>
+                                </span>
+                                <span class="skill-label">Jira</span>
+                            </li>
+                           <li class="skill-card"><i class="fas fa-user-check"></i><span class="skill-label">Manual Testing</span></li>
+                           <li class="skill-card">
+                               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto;">
+                                   <polyline points="18,10 23,15 28,10" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                   <polyline points="13,18 18,23 28,13" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                               </svg>
+                               <span class="skill-label">Zephyr</span>
+                           </li>
+                           <li class="skill-card"><i class="fas fa-spider"></i><span class="skill-label">Security Testing</span></li>
+                           <li class="skill-card">
+                               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto;">
+                                   <rect x="8" y="14" width="16" height="12" rx="3" fill="white"/>
+                                   <rect x="14" y="20" width="4" height="4" rx="2" fill="#0a0a0a"/>
+                                   <path d="M12 14v-3a4 4 0 1 1 8 0v3" stroke="white" stroke-width="2.5" fill="none"/>
+                               </svg>
+                               <span class="skill-label">Burp Suite</span>
+                           </li>
+                           <li class="skill-card"><i class="fab fa-git-alt"></i><span class="skill-label">Git</span></li>
+                           <li class="skill-card"><i class="fab fa-github"></i><span class="skill-label">GitHub</span></li>
+                           <li class="skill-card"><i class="fab fa-github"></i><span class="skill-label">GitHub Actions</span></li>
+                           <li class="skill-card"><i class="fab fa-docker"></i><span class="skill-label">Docker</span></li>
+                           <li class="skill-card"><i class="fab fa-linux"></i><span class="skill-label">WSL2</span></li>
+                            <li class="skill-card">
+                                <span style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="6" y="6" width="12" height="2" rx="1" fill="white"/>
+                                        <rect x="6" y="10" width="12" height="2" rx="1" fill="white"/>
+                                        <rect x="6" y="14" width="12" height="2" rx="1" fill="white"/>
+                                    </svg>
+                                </span>
+                                <span class="skill-label">SDLC</span>
+                            </li>
+                           <li class="skill-card"><i class="fas fa-vial"></i><span class="skill-label">STLC</span></li>
                         </ul>
                     </div>
                 </div>
@@ -2799,32 +3101,24 @@
                 <div class="skills-loop-container">
                     <div class="skills-loop-track reverse">
                         <ul class="skills-loop-list">
-                            <li class="skill-card"><i class="fab fa-github"></i><span class="skill-label">GitHub</span></li>
-                            <li class="skill-card"><i class="fab fa-linux"></i><span class="skill-label">Linux</span></li>
-                            <li class="skill-card"><i class="fas fa-project-diagram"></i><span class="skill-label">SDLC</span></li>
-                            <li class="skill-card"><i class="fas fa-vial"></i><span class="skill-label">STLC</span></li>
-                            <li class="skill-card"><i class="fas fa-database"></i><span class="skill-label">SQL</span></li>
-                            <li class="skill-card"><i class="fas fa-server"></i><span class="skill-label">DB Testing</span></li>
-                            <li class="skill-card"><i class="fas fa-sitemap"></i><span class="skill-label">DB Design</span></li>
-                            <li class="skill-card"><i class="fas fa-draw-polygon"></i><span class="skill-label">UML</span></li>
-                            <li class="skill-card"><i class="fab fa-php"></i><span class="skill-label">PHP</span></li>
-                            <li class="skill-card"><i class="fab fa-html5"></i><span class="skill-label">HTML</span></li>
-                            <li class="skill-card"><i class="fab fa-css3-alt"></i><span class="skill-label">CSS</span></li>
-                            <li class="skill-card"><i class="fas fa-shield-alt"></i><span class="skill-label">InfoSec</span></li>
+                           <li class="skill-card"><i class="fas fa-database"></i><span class="skill-label">SQL</span></li>
+                           <li class="skill-card"><i class="fas fa-server"></i><span class="skill-label">Database Testing</span></li>
+                           <li class="skill-card"><i class="fas fa-database"></i><span class="skill-label">Database Design</span></li>
+                           <li class="skill-card"><i class="fas fa-draw-polygon"></i><span class="skill-label">UML</span></li>
+                           <li class="skill-card"><i class="fab fa-php"></i><span class="skill-label">PHP</span></li>
+                           <li class="skill-card"><i class="fab fa-html5"></i><span class="skill-label">HTML</span></li>
+                           <li class="skill-card"><i class="fab fa-css3-alt"></i><span class="skill-label">CSS</span></li>
+                           <li class="skill-card"><i class="fas fa-shield-alt"></i><span class="skill-label">Information Security</span></li>
                         </ul>
                         <ul class="skills-loop-list" aria-hidden="true">
-                            <li class="skill-card"><i class="fab fa-github"></i><span class="skill-label">GitHub</span></li>
-                            <li class="skill-card"><i class="fab fa-linux"></i><span class="skill-label">Linux</span></li>
-                            <li class="skill-card"><i class="fas fa-project-diagram"></i><span class="skill-label">SDLC</span></li>
-                            <li class="skill-card"><i class="fas fa-vial"></i><span class="skill-label">STLC</span></li>
-                            <li class="skill-card"><i class="fas fa-database"></i><span class="skill-label">SQL</span></li>
-                            <li class="skill-card"><i class="fas fa-server"></i><span class="skill-label">DB Testing</span></li>
-                            <li class="skill-card"><i class="fas fa-sitemap"></i><span class="skill-label">DB Design</span></li>
-                            <li class="skill-card"><i class="fas fa-draw-polygon"></i><span class="skill-label">UML</span></li>
-                            <li class="skill-card"><i class="fab fa-php"></i><span class="skill-label">PHP</span></li>
-                            <li class="skill-card"><i class="fab fa-html5"></i><span class="skill-label">HTML</span></li>
-                            <li class="skill-card"><i class="fab fa-css3-alt"></i><span class="skill-label">CSS</span></li>
-                            <li class="skill-card"><i class="fas fa-shield-alt"></i><span class="skill-label">InfoSec</span></li>
+                           <li class="skill-card"><i class="fas fa-database"></i><span class="skill-label">SQL</span></li>
+                           <li class="skill-card"><i class="fas fa-server"></i><span class="skill-label">Database Testing</span></li>
+                           <li class="skill-card"><i class="fas fa-database"></i><span class="skill-label">Database Design</span></li>
+                           <li class="skill-card"><i class="fas fa-draw-polygon"></i><span class="skill-label">UML</span></li>
+                           <li class="skill-card"><i class="fab fa-php"></i><span class="skill-label">PHP</span></li>
+                           <li class="skill-card"><i class="fab fa-html5"></i><span class="skill-label">HTML</span></li>
+                           <li class="skill-card"><i class="fab fa-css3-alt"></i><span class="skill-label">CSS</span></li>
+                           <li class="skill-card"><i class="fas fa-shield-alt"></i><span class="skill-label">Information Security</span></li>
                         </ul>
                     </div>
                 </div>
@@ -2836,7 +3130,7 @@
     <section id="projects">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What I Build<span class="hl">|</span></h2>
+                <h2 class="section-title" data-decrypt="true"><span>What</span> <span>I</span> <span>Build</span></h2>
                 <p class="section-desc">Visualizing the architecture of quality-focused testing projects and automation frameworks.</p>
             </div>
 
@@ -2940,6 +3234,29 @@
                         <a href="https://github.com/LakinduQA/Burp-Suite_JuiceShop_Security-Testing" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
                     </div>
                 </div>
+
+               
+
+                <!-- Card 7: Rooster Onboarding Defects -->
+                <div class="project-card">
+                    <div class="project-top">
+                        <div class="project-icon"><i class="fas fa-bug"></i></div>
+                        <span class="project-category">Defect Reports</span>
+                    </div>
+                    <h3 class="project-title">Rooster Onboarding Defects</h3>
+                    <p class="project-desc">Detailed bug reports and evidence regarding GraphQL validation failures and UI/UX issues on the Rooster Jobs talent platform.</p>
+                    <div class="project-bottom">
+                        <div class="project-tags">
+                            <span class="project-tag">Bug Reports</span>
+                            <span class="project-tag">QA Evidence</span>
+                            <span class="project-tag">Rooster Jobs</span>
+                        </div>
+                        <span class="project-metric">Investigation Ready</span>
+                    </div>
+                    <div class="project-link-wrap">
+                        <a href="https://github.com/LakinduQA/rooster-onboarding-defects" target="_blank" class="project-link"><i class="fab fa-github"></i> View on Github</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -2949,15 +3266,15 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">// KNOWLEDGE_BASE</div>
-                <h2 class="section-title">Articles & Insights</h2>
-                <p class="section-desc">Sharing knowledge with the QA community on LinkedIn and Medium.</p>
+                <h2 class="section-title" data-decrypt="true"><span>Articles</span> <span>&</span> <span>Insights</span></h2>
+                <p class="section-desc">Sharing knowledge with the QA community on Medium.</p>
             </div>
 
             <div class="articles-grid">
                 <div class="article-card">
                     <img src="media/Article Banners/IMG_9090.PNG" alt="Shift-Left Testing">
                     <div class="article-content">
-                        <div class="article-platform">LINKEDIN / MEDIUM</div>
+                        <div class="article-platform">MEDIUM</div>
                         <h4>Shift-Left and Shift-Right Testing in QAOps</h4>
                         <p>Understanding the mindset shift for continuous quality...</p>
                         <a href="https://medium.com/@lakindudesilva007/shift-left-and-shift-right-testing-in-qaops-a-mindset-shift-for-continuous-quality-85ef943ed14f" target="_blank" class="article-link"><i class="fas fa-external-link-alt"></i> Read Article</a>
@@ -2967,7 +3284,7 @@
                 <div class="article-card">
                     <img src="media/Article Banners/IMG_9986.PNG" alt="Security Testing">
                     <div class="article-content">
-                        <div class="article-platform">LINKEDIN / MEDIUM</div>
+                        <div class="article-platform"> MEDIUM</div>
                         <h4>Your App Works Fine. But Is It Safe?</h4>
                         <p>Why security testing is non-negotiable for QA engineers...</p>
                         <a href="https://medium.com/@lakindudesilva007/why-security-testing-is-non-negotiable-for-qa-engineers-9dca25195021" target="_blank" class="article-link"><i class="fas fa-external-link-alt"></i> Read Article</a>
@@ -2996,7 +3313,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">// LINKEDIN_JOURNEY</div>
-                <h2 class="section-title">LinkedIn Journey</h2>
+                <h2 class="section-title" data-decrypt="true"><span>LinkedIn</span> <span>Journey</span></h2>
                 <p class="section-desc">Short reflections and posts shared on LinkedIn.</p>
             </div>
 
@@ -3043,7 +3360,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">// MY_PROCESS</div>
-                <h2 class="section-title">How I Work<span class="hl">|</span></h2>
+                <h2 class="section-title" data-decrypt="true"><span>How</span> <span>I</span> <span>Work</span> |</h2>
                 <p class="section-desc">Structured QA process from discovery to delivery — pragmatic testing, automation, and verification to ensure production-ready software.</p>
             </div>
 
@@ -3122,7 +3439,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">// ESTABLISH_CONNECTION</div>
-                <h2 class="section-title">Initialize Connection</h2>
+                <h2 class="section-title" data-decrypt="true"><span>Initialize</span> <span>Connection</span></h2>
                 <p class="section-desc">Have a testing challenge? Need QA expertise or test automation?<br>Let's connect.</p>
             </div>
 
@@ -3138,7 +3455,7 @@
                     </div>
                     <div class="terminal-body">
                         <div class="terminal-line">Lakindu QA Protocol initialized...</div>
-                        <div class="terminal-line">Ready for inquiries. I help with <span class="highlight">Manual Testing</span>, <span class="highlight">Test Automation</span>, and <span class="highlight">Security Testing</span>.</div>
+                        <div class="terminal-line">Ready for inquiries. I help with <span class="highlight">Manual Testing</span>, <span class="highlight">Test Automation</span>, and <span class="highlight">Performance Testing</span>.</div>
                         <div class="terminal-line">Type <span class="cmd">"email"</span> for contact info or <span class="cmd">"connect"</span> for LinkedIn.</div>
                         <div class="terminal-response" id="terminalResponse"></div>
                     </div>
@@ -3155,7 +3472,7 @@
     <!-- Footer -->
     <footer class="footer-bar">
         <div class="footer-left">COORD: <span class="footer-coords" id="coords">000, 000</span></div>
-        <div class="footer-center">© 2025 LAKINDU_OS // ALL SYSTEMS OPERATIONAL</div>
+        <div class="footer-center">© 2026 LAKINDU_QA // ALL SYSTEMS OPERATIONAL</div>
         <button class="xray-btn"><i class="fas fa-eye"></i> HOLD [SPACE] FOR X-RAY</button>
     </footer>
 
@@ -3202,12 +3519,13 @@
         });
 
         // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href').slice(1);
+                const target = document.getElementById(targetId);
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    e.preventDefault();
+                    window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
                 }
             });
         });
@@ -3432,6 +3750,109 @@
         const mo = new MutationObserver(() => { setTimeout(moveForMobile, 60); });
         mo.observe(parent, { childList: true });
     })();
+    </script>
+    <script>
+    // Decrypt-style hero title animation (preserve original span lines) with spacer animation
+    document.addEventListener('DOMContentLoaded', () => {
+        const glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()[]{}<>?/\\|';
+
+        function animateChar(charEl, finalChar, delay) {
+            if (finalChar === ' ') {
+                charEl.textContent = ' ';
+                charEl.classList.add('dec-done');
+                charEl.style.color = 'inherit';
+                return;
+            }
+            charEl.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+            setTimeout(() => {
+                let ticks = 0;
+                const it = setInterval(() => {
+                    charEl.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+                    ticks++;
+                    if (ticks > 6) {
+                        clearInterval(it);
+                        charEl.textContent = finalChar;
+                        charEl.classList.add('dec-done');
+                        charEl.style.color = 'inherit';
+                    }
+                }, 30);
+            }, delay);
+        }
+
+        function animateSpace(spaceEl, delay) {
+            // ensure initial width is 0
+            spaceEl.classList.remove('expand');
+            setTimeout(() => {
+                spaceEl.classList.add('expand');
+                // collapse after a short hold so repeated scroll shows the effect again
+                setTimeout(() => spaceEl.classList.remove('expand'), 700);
+            }, delay);
+        }
+
+        function renderAndAnimate(el) {
+            const segments = el._dec_segments || [];
+            el.innerHTML = '';
+
+            segments.forEach((segText, segIndex) => {
+                const segWrapper = document.createElement('span');
+                segWrapper.className = 'hero-seg';
+
+                Array.from(segText).forEach((ch, charIndex) => {
+                    const c = document.createElement('span');
+                    c.className = 'dec-char';
+                    // Force inherited color so animation doesn't introduce new colors
+                    c.style.color = 'inherit';
+                    c.style.background = 'transparent';
+                    c.textContent = ch === ' ' ? ' ' : glyphs[Math.floor(Math.random() * glyphs.length)];
+                    segWrapper.appendChild(c);
+
+                    const delay = segIndex * 260 + charIndex * 80;
+                    animateChar(c, ch, delay);
+                });
+
+                el.appendChild(segWrapper);
+
+                // add an animated spacer between segments (except after last)
+                if (segIndex < segments.length - 1) {
+                    const spacer = document.createElement('span');
+                    spacer.className = 'dec-space';
+                    el.appendChild(spacer);
+                        const spaceDelay = segIndex * 260 + (segments[segIndex].length) * 80 + 60;
+                        animateSpace(spacer, spaceDelay);
+                        // After the spacer animation completes, replace the spacer element
+                        // with a real space text node so the final DOM reads like "Who I Am".
+                        setTimeout(() => {
+                            try {
+                                if (spacer.parentNode) spacer.replaceWith(document.createTextNode(' '));
+                            } catch (e) { /* noop */ }
+                        }, spaceDelay + 800);
+                }
+            });
+        }
+
+        // Prepare elements: store their original segment texts so we can re-render on every scroll-in
+        const decryptEls = Array.from(document.querySelectorAll('[data-decrypt="true"]'));
+        decryptEls.forEach(el => {
+            const segments = Array.from(el.querySelectorAll('span')).map(s => s.textContent || '');
+            // fallback: if no child spans, use textContent split by spaces
+            if (segments.length === 0) segments.push((el.textContent || '').trim());
+            el._dec_segments = segments;
+            // render immediately for first view
+            renderAndAnimate(el);
+        });
+
+        // IntersectionObserver to retrigger when element scrolls into view
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    renderAndAnimate(el);
+                }
+            });
+        }, { threshold: 0.35 });
+
+        decryptEls.forEach(el => obs.observe(el));
+    });
     </script>
 </body>
 </html>
