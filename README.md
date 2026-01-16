@@ -1,6 +1,6 @@
 # Kavithi Thilakarathne
 test push
-**Second-year Information Systems undergraduate | QA Student**
+**Third-year Information Technology undergraduate | SE Student**
 
 ## 🌐 Visit My Portfolio
 
@@ -12,7 +12,7 @@ This portfolio has been completely restructured into a modular, maintainable, an
 ## 📁 New Project Structure
 
 ```
-LakinduQA.github.io-premium/
+kavithi-thilakarathne.dev.github.io-premium/
 ├── assets/
 │   ├── css/
 │   │   ├── base.css          # Variables, reset, and base styles
