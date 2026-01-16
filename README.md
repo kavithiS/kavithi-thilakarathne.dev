@@ -4,7 +4,7 @@ test push
 
 ## 🌐 Visit My Portfolio
 
-**# https://kavithis.github.io/kavithi-thilakarathne.dev/
+** https://kavithis.github.io/kavithi-thilakarathne.dev/**
 ## 🎉 Restructured for Professional Development!
 
 This portfolio has been completely restructured into a modular, maintainable, and professional codebase.
