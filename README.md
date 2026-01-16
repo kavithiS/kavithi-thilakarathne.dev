@@ -4,8 +4,7 @@ test push
 
 ## 🌐 Visit My Portfolio
 
-**# Lakindu QA Portfolio - Professional Structure
-
+**# https://kavithis.github.io/kavithi-thilakarathne.dev/
 ## 🎉 Restructured for Professional Development!
 
 This portfolio has been completely restructured into a modular, maintainable, and professional codebase.
