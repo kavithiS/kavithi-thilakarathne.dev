@@ -1,3 +1,12 @@
+/* Ensure article thumbnails display correctly */
+.article-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  display: block;
+  background: #222;
+}
 /* Navigation Styles */
 .navbar {
   position: fixed;
@@ -45,8 +54,10 @@
   align-items: center;
   padding: 15px 20px;
   margin-right: auto;
-}
-
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
 .nav-logo:hover {
   transform: scale(1.05);
   background: linear-gradient(135deg, #ffffff, #60a5fa, #8b5cf6);
@@ -339,7 +350,7 @@
 }
 
 .profile-pic:hover {
-  transform: scale(1.05);
+  transform: scale(1.18);
   border-color: var(--accent);
   box-shadow: 0 12px 40px rgba(139, 92, 246, 0.4);
 }
@@ -683,6 +694,7 @@
 }
 
 .terminal-dot.green {
+  background: #5A9CB5;
   background: var(--test-pass);
 }
 

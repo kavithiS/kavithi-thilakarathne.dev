@@ -7,36 +7,36 @@
 Add the following SEO tags to your HTML <head> section:
 
 ```html
-<meta name="description" content="Lakindu De Silva – QA Engineer portfolio. Manual & automated testing, Playwright, Postman, and more." />
-<meta name="keywords" content="QA Portfolio, Lakindu De Silva, Quality Assurance, Software Testing, Playwright, Manual Testing, Automation, lakinduqa.github.io" />
-<meta name="author" content="Lakindu De Silva" />
+<meta name="description" content="Kavithi Thilakarathne – QA Engineer portfolio. Manual & automated testing, Playwright, Postman, and more." />
+<meta name="keywords" content="QA Portfolio, Kavithi Thilakarathne, Quality Assurance, Software Testing, Playwright, Manual Testing, Automation, lakinduqa.github.io" />
+<meta name="author" content="Kavithi Thilakarathne" />
 <meta name="google-site-verification" content="dO4eFPMtvHbfTNPqoY8zkGnM1XNC778ci9Ug_Z_XPsU" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://lakinduqa.github.io/" />
-<meta property="og:title" content="Lakindu De Silva – QA Engineer Portfolio" />
+<meta property="og:title" content="Kavithi Thilakarathne – QA Engineer Portfolio" />
 <meta property="og:description" content="QA Engineer specializing in manual & automated testing, Playwright, Postman, and security testing. Building quality software through comprehensive testing." />
 <meta property="og:image" content="https://lakinduqa.github.io/media/profile new.jpeg" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content="https://lakinduqa.github.io/" />
-<meta property="twitter:title" content="Lakindu De Silva – QA Engineer Portfolio" />
+<meta property="twitter:title" content="Kavithi Thilakarathne – QA Engineer Portfolio" />
 <meta property="twitter:description" content="QA Engineer specializing in manual & automated testing, Playwright, Postman, and security testing." />
 <meta property="twitter:image" content="https://lakinduqa.github.io/media/profile new.jpeg" />
 
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'></text></svg>" />
 
-<title>Lakindu De Silva – QA Portfolio</title>
+<title>Kavithi Thilakarathne – QA Portfolio</title>
 
 <!-- Structured Data -->
 <script type="application/ld+json">
      {
           "@context": "https://schema.org",
           "@type": "Person",
-          "name": "Lakindu De Silva",
+          "name": "Kavithi Thilakarathne",
           "jobTitle": "QA Engineer",
           "description": "Quality Assurance Engineer specializing in manual and automated testing",
           "url": "https://lakinduqa.github.io/",

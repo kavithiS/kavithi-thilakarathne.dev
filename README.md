@@ -1,4 +1,4 @@
-# Lakindu De Silva
+# Kavithi Thilakarathne
 test push
 **Second-year Information Systems undergraduate | QA Student**
 

@@ -3,45 +3,45 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Lakindu De Silva – QA Engineer portfolio. Manual & automated testing, Playwright, Postman, and more." />
-        <meta name="keywords" content="QA Portfolio, Lakindu De Silva, Quality Assurance, Software Testing, Playwright, Manual Testing, Automation, lakinduqa.github.io" />
-        <meta name="author" content="Lakindu De Silva" />
+        <meta name="description" content="Kavithi Thilakarathne – QA Engineer portfolio. Manual & automated testing, Playwright, Postman, and more." />
+        <meta name="keywords" content="QA Portfolio, Kavithi Thilakarathne, Quality Assurance, Software Testing, Playwright, Manual Testing, Automation, lakinduqa.github.io" />
+        <meta name="author" content="Kavithi Thilakarathne" />
         <meta name="google-site-verification" content="dO4eFPMtvHbfTNPqoY8zkGnM1XNC778ci9Ug_Z_XPsU" />
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
-        <meta name="description" content="Lakindu De Silva – QA Engineer portfolio. Manual & automated testing, Playwright, Postman, and more." />
-        <meta name="keywords" content="QA Portfolio, Lakindu De Silva, Quality Assurance, Software Testing, Playwright, Manual Testing, Automation, lakinduqa.github.io" />
-        <meta name="author" content="Lakindu De Silva" />
+        <meta name="description" content="Kavithi Thilakarathne – QA Engineer portfolio. Manual & automated testing, Playwright, Postman, and more." />
+        <meta name="keywords" content="QA Portfolio, Kavithi Thilakarathne, Quality Assurance, Software Testing, Playwright, Manual Testing, Automation, lakinduqa.github.io" />
+        <meta name="author" content="Kavithi Thilakarathne" />
         <meta name="google-site-verification" content="dO4eFPMtvHbfTNPqoY8zkGnM1XNC778ci9Ug_Z_XPsU" />
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://lakinduqa.github.io/" />
-        <meta property="og:title" content="Lakindu De Silva – QA Engineer Portfolio" />
+        <meta property="og:title" content="Kavithi Thilakarathne – QA Engineer Portfolio" />
         <meta property="og:description" content="QA Engineer specializing in manual & automated testing, Playwright, Postman, and security testing. Building quality software through comprehensive testing." />
-        <meta property="og:image" content="https://lakinduqa.github.io/media/IMG_9736.jpeg" />
+        <meta property="og:image" content="https://lakinduqa.github.io/media/1.jpeg" />
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://lakinduqa.github.io/" />
-        <meta property="twitter:title" content="Lakindu De Silva – QA Engineer Portfolio" />
+        <meta property="twitter:title" content="Kavithi Thilakarathne – QA Engineer Portfolio" />
         <meta property="twitter:description" content="QA Engineer specializing in manual & automated testing, Playwright, Postman, and security testing." />
-        <meta property="twitter:image" content="https://lakinduqa.github.io/media/IMG_9736.jpeg" />
+        <meta property="twitter:image" content="https://lakinduqa.github.io/media/1.jpeg" />
 
         <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'></text></svg>" />
 
         <!-- Font Awesome (icons) -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <title>Lakindu De Silva – QA Portfolio</title>
+        <title>Kavithi Thilakarathne – QA Portfolio</title>
 
         <!-- Structured Data -->
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "Person",
-                "name": "Lakindu De Silva",
+                "name": "Kavithi Thilakarathne",
                 "jobTitle": "QA Engineer",
                 "description": "Quality Assurance Engineer specializing in manual and automated testing",
                 "url": "https://lakinduqa.github.io/",
@@ -71,8 +71,9 @@
             --text: #ffffff;
             --text-dim: #8b949e;
             --text-muted: #484f58;
-            --green: #3fb950;
-            --green-dim: rgba(63, 185, 80, 0.15);
+            --green: #5A9CB5;
+            --blue-alt: #58A0C8;
+            --green-dim: rgba(90, 156, 181, 0.15);
             --yellow: #d29922;
             --yellow-dim: rgba(210, 153, 34, 0.12);
             --blue: #58a6ff;
@@ -1108,7 +1109,7 @@
 
         .about-card-dot.red { background: #ff5f56; }
         .about-card-dot.yellow { background: #ffbd2e; }
-        .about-card-dot.green { background: #27c93f; }
+        .about-card-dot.green { background: #5A9CB5; }
 
         .about-card-title {
             font-family: 'JetBrains Mono', monospace;
@@ -1703,256 +1704,7 @@
             margin-top: 50px;
         }
 
-        /* How I Work Timeline Section */
-        .timeline-section {
-            padding: 100px 0;
-        }
-
-        .timeline-container {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 0;
-        }
-
-        /* Center vertical line - base (gray) */
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateX(-50%);
-        }
-
-        /* Animated progress line (multi-color gradient) */
-        .timeline-progress {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            width: 3px;
-            height: 0%;
-            background: linear-gradient(
-                to bottom,
-                #58a6ff 0%,        /* Blue - Identify */
-                #a371f7 16.6%,     /* Purple - Research */
-                #d29922 33.3%,     /* Yellow - Design */
-                #39c5cf 50%,       /* Cyan - Execute */
-                #ff7b92 66.6%,     /* Pink - Report */
-                #3fb950 83.3%,     /* Green - Deliver */
-                #3fb950 100%
-            );
-            transform: translateX(-50%);
-            box-shadow: 0 0 12px rgba(88, 166, 255, 0.4);
-            transition: height 0.05s linear;
-            border-radius: 2px;
-        }
-
-        /* Glowing tip of the line - color changes dynamically via JS */
-        .timeline-progress::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 10px;
-            height: 10px;
-            background: var(--tip-color, #58a6ff);
-            border-radius: 50%;
-            box-shadow: 0 0 15px var(--tip-color, #58a6ff), 0 0 30px var(--tip-color, #58a6ff);
-            transition: background 0.3s, box-shadow 0.3s;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 60px;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Alternating sides */
-        .timeline-item.left {
-            justify-content: flex-start;
-            padding-right: calc(50% + 40px);
-        }
-
-        .timeline-item.right {
-            justify-content: flex-end;
-            padding-left: calc(50% + 40px);
-        }
-
-        /* Timeline dot on the line */
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            top: 20px;
-            width: 14px;
-            height: 14px;
-            background: var(--bg);
-            border: 2px solid var(--green);
-            border-radius: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            box-shadow: 0 0 15px rgba(63, 185, 80, 0.4);
-        }
-
-        /* Hide decorative green timeline dots inside the How I Work section */
-        #process .timeline-dot {
-            display: none !important;
-        }
-
-        /* Also hide the glowing tip if present */
-        #process .timeline-progress::after {
-            display: none !important;
-        }
-
-        .timeline-item:hover .timeline-dot {
-            background: var(--green);
-            box-shadow: 0 0 25px rgba(63, 185, 80, 0.6);
-        }
-
-        /* Timeline card */
-        .timeline-card {
-            background: rgba(15, 17, 21, 0.6);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-            max-width: 350px;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover .timeline-card {
-            border-color: rgba(63, 185, 80, 0.3);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .timeline-icon {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            margin-bottom: 14px;
-            font-size: 16px;
-        }
-
-        .timeline-icon.purple { background: rgba(163, 113, 247, 0.15); color: #a371f7; }
-        .timeline-icon.blue { background: rgba(88, 166, 255, 0.15); color: #58a6ff; }
-        .timeline-icon.yellow { background: rgba(210, 153, 34, 0.15); color: #d29922; }
-        .timeline-icon.cyan { background: rgba(57, 197, 207, 0.15); color: #39c5cf; }
-        .timeline-icon.pink { background: rgba(255, 123, 146, 0.15); color: #ff7b92; }
-        .timeline-icon.green { background: rgba(63, 185, 80, 0.15); color: #3fb950; }
-
-        .timeline-card h3 {
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .timeline-card p {
-            font-size: 13px;
-            color: var(--text-dim);
-            line-height: 1.6;
-        }
-
-        /* Right side text alignment */
-        .timeline-item.right .timeline-card {
-            text-align: right;
-        }
-
-        .timeline-item.right .timeline-icon {
-            margin-left: auto;
-        }
-
-        /* Terminal badge */
-        .timeline-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-        }
-
-        .timeline-badge::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--green);
-            border-radius: 50%;
-        }
-
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            .timeline-line {
-                left: 20px;
-            }
-
-            .timeline-item.left,
-            .timeline-item.right {
-                padding-left: 50px;
-                padding-right: 0;
-                justify-content: flex-start;
-            }
-
-            .timeline-dot {
-                left: 20px;
-            }
-
-            .timeline-item.right .timeline-card {
-                text-align: left;
-            }
-
-            .timeline-item.right .timeline-icon {
-                margin-left: 0;
-            }
-
-            .timeline-card {
-                max-width: 100%;
-            }
-        }
-
-        /* Improve timeline layout on small screens: align cards to the right of the vertical line */
-        @media (max-width: 768px) {
-            .timeline-container { padding-left: 18px; padding-right: 18px; }
-            .timeline-line { left: 28px; transform: none !important; z-index: 0; }
-            .timeline-progress { left: 28px; transform: none !important; z-index: 1; }
-            .timeline-dot { left: 28px; transform: translateX(-50%); z-index: 3; }
-
-            .timeline-item {
-                display: block;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                margin-bottom: 32px;
-            }
-
-            .timeline-card {
-                margin-left: 60px;
-                width: calc(100% - 72px);
-                text-align: left;
-                padding: 18px;
-                position: relative;
-                z-index: 2;
-            }
-
-            .timeline-item.right .timeline-card {
-                margin-left: 60px;
-            }
-
-            .timeline-item .timeline-icon { margin-bottom: 8px; }
-            /* ensure timeline tip is positioned correctly relative to the small progress bar */
-            .timeline-progress::after { left: 1px; transform: translateX(-50%); }
-        }
+        /* Timeline styles moved to assets/css/process.css */
 
         /* Scroll Reveal Animations */
         .reveal {
@@ -2080,7 +1832,7 @@
 
         .terminal-dot.red { background: #ff5f56; }
         .terminal-dot.yellow { background: #ffbd2e; }
-        .terminal-dot.green { background: #27c93f; }
+        .terminal-dot.green { background: #5A9CB5; }
 
         .terminal-title {
             flex: 1;
@@ -2542,6 +2294,7 @@
             .hero-right { margin-top: var(--profile-top-offset) !important; align-self: stretch !important; }
         }
     </style>
+    <link rel="stylesheet" href="assets/css/process.css">
 </head>
 <body>
     <div class="bg-container">
@@ -2563,7 +2316,7 @@
 
     <!-- Fixed Navigation -->
     <nav class="nav-fixed">
-        <div class="nav-logo" style="color: var(--green); font-weight: bold; font-family: 'JetBrains Mono', monospace;">LAKINDU_QA v2.0</div>
+        <div class="nav-logo" style="color: var(--green); font-weight: bold; font-family: 'JetBrains Mono', monospace;">KAVITHI_DEV v1.0</div>
         <ul class="nav-links" id="main-navigation">
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -2588,21 +2341,21 @@
     <!-- HERO SECTION -->
     <section class="hero" id="home">
 
-        <div class="identity">IDENTITY: LAKINDU DE SILVA</div>
+        <div class="identity">IDENTITY: KAVITHI THILAKARATHNE</div>
         <div class="container hero-container">
             <!-- Mobile-only hero title inserted so the QA & Automation text appears at top on small screens -->
             
             <h1 class="hero-title hero-title-mobile" data-decrypt="true">
-                <span>QA &</span>
-                <span>Automation</span>
+                <span>Software</span>
+            
                 <span>Engineer</span>
             </h1>
             <div class="hero-left">
                 
                 
                 <h1 class="hero-title hero-title-desktop" data-decrypt="true">
-                    <span>QA & </span>
-                    <span> Automation</span>
+                    <span>Software </span>
+                    
                     <span>Engineer</span>
                 </h1>
 
@@ -2622,81 +2375,96 @@
                 <div class="alert-box">
                     <div class="alert-header">
                         <div class="alert-icon"><i class="fas fa-exclamation-triangle"></i></div>
-                        <span class="alert-label">DIAGNOSTIC ALERT</span>
-                        <span class="alert-code">Code: 404_QUALITY</span>
+                        <span class="alert-label">ENGINEERING NOTICE</span>
+                        <span class="alert-code">Code: 200_ENGINEER</span>
                     </div>
-                    <div class="alert-title">Your Software Might Have Bugs.</div>
-                    <div class="alert-text">Let me find them before your users do. <span class="hl">Comprehensive testing & automation in 48 hours.</span></div>
+                    <div class="alert-title">Build Software That Makes an Impact.</div>
+                    <div class="alert-text">Let's turn your ideas into scalable, reliable, and innovative solutions. <span class="hl">Full-stack engineering, cloud, and automation expertise.</span></div>
                 </div>
 
                 <div class="term-line">
                     <span class="term-prefix">>></span>
                     <div>
-                        <div class="term-text">Manual precision + Automated efficiency.<span class="term-cursor"></span></div>
-                        <div class="term-sub">No bugs escape, no surprises.</div>
+                        <div class="term-text">Code. Deploy. Innovate.<span class="term-cursor"></span></div>
+                        <div class="term-sub">From concept to production, I engineer solutions that scale.</div>
                     </div>
                 </div>
 
                 <div class="buttons">
-                    <a href="mailto:lakindudesilva007@gmail.com" class="btn btn-primary">CONTACT ME</a>
-                    <a href="https://github.com/LakinduQA" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GITHUB</a>
-                    <a href="https://www.linkedin.com/in/lakindu-de-silva" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin-in"></i> LINKEDIN</a>
+                    <a href="mailto:kavithi.thilakarathne123@gmail.com" class="btn btn-primary">CONTACT ME</a>
+                    <a href="https://github.com/kavithiS" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GITHUB</a>
+                    <a href="https://www.linkedin.com/in/kavithi-thilakarathne-552252327/" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin-in"></i> LINKEDIN</a>
                 </div>
             </div>
 
             <div class="hero-right">
                 <div class="profile-card">
                     <div class="profile-header">
-                        <img src="media/IMG_9736.jpeg" alt="Lakindu" class="avatar">
+                        <img src="media/1.jpeg" alt="Kavithi Thilakarathne" class="avatar">
                         <div class="profile-info">
-                            <div class="lbl">QA_ENGINEER</div>
-                            <div class="name">Lakindu De Silva</div>
+                            <div class="lbl">SOFTWARE_ENGINEER</div>
+                            <div class="name">Kavithi Thilakarathne</div>
                         </div>
                         <i class="fas fa-cog profile-gear"></i>
                     </div>
                     <div class="profile-body">
-                        <div class="exec-label">EXECUTION_PROTOCOL_V1 <span class="wave">〜</span></div>
+                        <div class="exec-label">ENGINEERING_PROFILE_V1 <span class="wave">〜</span></div>
 
                         <div class="protocol-item done">
                             <div class="protocol-head">
-                                <i class="fas fa-check protocol-icon g"></i>
-                                <span class="protocol-title">MANUAL_TESTING</span>
+                                <i class="fas fa-code protocol-icon b"></i>
+                                <span class="protocol-title">LANGUAGES</span>
                             </div>
                             <div class="protocol-subs">
-                                <div class="sub">Functional Testing</div>
-                                <div class="sub">Exploratory Testing</div>
-                                <div class="sub">Usability Testing</div>
+                                <div class="sub">Java, Python, JavaScript/TypeScript, SQL</div>
+                                <div class="sub">C, C++, HTML, CSS, PHP, Kotlin, R</div>
                             </div>
                         </div>
 
                         <div class="protocol-item active">
                             <div class="protocol-head">
-                                <i class="fas fa-bolt protocol-icon b"></i>
-                                <span class="protocol-title">TEST_AUTOMATION</span>
+                                <i class="fas fa-server protocol-icon b"></i>
+                                <span class="protocol-title">BACKEND & DATABASES</span>
                             </div>
                             <div class="protocol-subs">
-                                <div class="sub">Playwright Framework</div>
-                                <div class="sub">API Testing</div>
-                                <div class="sub">CI/CD Integration</div>
+                                <div class="sub">Node.js, Express.js, RESTful APIs</div>
+                                <div class="sub">MySQL, MongoDB</div>
                             </div>
                         </div>
 
                         <div class="protocol-item">
                             <div class="protocol-head">
-                                <i class="fas fa-shield-alt protocol-icon b"></i>
-                                <span class="protocol-title">PERFORMANCE_TESTING</span>
+                                <i class="fas fa-desktop protocol-icon b"></i>
+                                <span class="protocol-title">FRONTEND</span>
                             </div>
                             <div class="protocol-subs">
-                                <div class="sub">Load Testing
-</div>
-                                <div class="sub">Stress Testing</div>
-                                <div class="sub">Performance Monitoring</div>
+                                <div class="sub">React, Next.js (App Router), Tailwind CSS</div>
+                            </div>
+                        </div>
+
+                        <div class="protocol-item">
+                            <div class="protocol-head">
+                                <i class="fas fa-cloud protocol-icon b"></i>
+                                <span class="protocol-title">TOOLS & CLOUD</span>
+                            </div>
+                            <div class="protocol-subs">
+                                <div class="sub">Git, VS Code, Postman, Jupyter</div>
+                            </div>
+                        </div>
+
+                        <div class="protocol-item">
+                            <div class="protocol-head">
+                                <i class="fas fa-robot protocol-icon b"></i>
+                                <span class="protocol-title">ML & DATA SCIENCE</span>
+                            </div>
+                            <div class="protocol-subs">
+                                <div class="sub">Numpy, Matplotlib</div>
                             </div>
                         </div>
                     </div>
                     <div class="profile-foot">
                         <span class="status">STATUS: <span>AVAILABLE</span></span>
-                        <span class="slots">Open for Opportunities</span>
+                        <span class="slots">Open for SE Roles</span>
                     </div>
                 </div>
             </div>
@@ -2879,7 +2647,7 @@
             <div class="section-header">
                 <div class="section-tag">// ABOUT_ME</div>
                 <h2 class="section-title" data-decrypt="true"><span>Who</span> <span>I</span> <span>Am</span></h2>
-                <p class="section-desc">Second-year Information Systems undergraduate with a passion for software quality.</p>
+                <p class="section-desc">Software Engineer passionate about building impactful solutions, learning new technologies, and solving real-world problems.</p>
             </div>
 
             <div class="about-grid">
@@ -2891,7 +2659,7 @@
                         <span class="about-card-title">journey.log</span>
                     </div>
                     <h3>My Journey</h3>
-                    <p>From an <span class="hl">Information Systems</span> undergraduate to a passionate <span class="hl">QA enthusiast</span>, I've embraced continuous learning and hands-on practice.</p>
+                    <p>From a curious coder to a dedicated <span class="hl">Software Engineer</span>, I've built projects from the ground up, contributed to open source, and thrived in collaborative environments. My journey is defined by a love for <span class="hl">problem solving</span> and a drive to turn ideas into reality through code.</p>
                 </div>
 
                 <div class="about-card">
@@ -2902,7 +2670,7 @@
                         <span class="about-card-title">approach.config</span>
                     </div>
                     <h3>My Approach</h3>
-                    <p>I combine <span class="hl">curiosity</span> with <span class="hl">discipline</span>, exploring new tools and frameworks while maintaining strong fundamentals.</p>
+                    <p>I blend <span class="hl">innovation</span> with <span class="hl">engineering discipline</span> rapidly prototyping, iterating, and delivering robust solutions. I embrace new frameworks, cloud platforms, and best practices, always focusing on clean code, scalability, and user experience across all devices.</p>
                 </div>
 
                 <div class="about-card">
@@ -2913,13 +2681,13 @@
                         <span class="about-card-title">education.md</span>
                     </div>
                     <h3>Education</h3>
-                    <p><strong>Currently pursuing HND in Information Systems</strong><br><span class="hl">2025 - 2026</span><br>Successfully completed Diploma in Management Information Systems with <span class="hl">4.0 GPA</span> (2024 - 2025)</p>
+                    <p><strong>Currently pursuing BSC in Information Technology Specializing in Information Technology (SLIIT)</strong><br><span class="hl">2023 - 2027</span></p>
                 </div>
             </div>
 
             <div class="stats-flow">
                 <div class="stat-item">
-                    <span class="stat-value" data-target="5" data-decrypt="true">6+</span>
+                    <span class="stat-value" data-target="5" data-decrypt="true">4+</span>
                     <span class="stat-label">Active Projects</span>
                 </div>
                 <div class="stat-item">
@@ -2928,7 +2696,7 @@
                 </div>
                 <div class="stat-item">
                     <span class="stat-value" data-target="200" data-decrypt="true">200+</span>
-                    <span class="stat-label"> Hands-on QA Hours</span>
+                    <span class="stat-label"> Hands-on SE Hours</span>
                 </div>
                     <!-- '100% Commitment' stat removed per request -->
             </div>
@@ -3139,19 +2907,19 @@
                 <div class="project-card">
                     <div class="project-top">
                         <div class="project-icon"><i class="fas fa-clipboard-check"></i></div>
-                        <span class="project-category">STLC Framework</span>
+                        <span class="project-category">Redbrick Constuction Management System</span>
                     </div>
-                    <h3 class="project-title">STLC Implementation – Sauce Demo</h3>
-                    <p class="project-desc">Complete Software Testing Life Cycle implementation on e-commerce platform. Test planning, design, execution, and comprehensive reporting.</p>
+                    <h3 class="project-title"> Constuction Management System – Redbrick.lk</h3>
+                    <p class="project-desc">Streamlined project management platform for construction sites. Plan, track, and manage tasks, resources, and progress with real-time updates and reporting.</p>
                     <div class="project-bottom">
                         <div class="project-tags">
-                            <span class="project-tag">Test Planning</span>
-                            <span class="project-tag">E-commerce</span>
+                            <span class="project-tag">Site Task Management</span>
+                            <span class="project-tag">Material & Tool Inventory</span>
                         </div>
-                        <span class="project-metric">100% Coverage</span>
+                        <span class="project-metric">Project Planning</span>
                     </div>
                     <div class="project-link-wrap">
-                        <a href="https://github.com/LakinduQA/STLC-Implementation---Sauce-Demo-E-commerce-Platform" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                        <a href="https://github.com/kavithiS/RedBrick-Construction-Management-System" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
                     </div>
                 </div>
 
@@ -3161,17 +2929,17 @@
                         <div class="project-icon"><i class="fas fa-robot"></i></div>
                         <span class="project-category">E2E Automation</span>
                     </div>
-                    <h3 class="project-title">Playwright Automation – ifs.com</h3>
-                    <p class="project-desc">Comprehensive end-to-end test automation framework. Real-time validation that transforms testing efficiency.</p>
+                    <h3 class="project-title">EasyEats – Food Ordering Platform</h3>
+                    <p class="project-desc">EasyEats is a full-featured online food ordering platform with a smooth customer experience, smart admin dashboard, and real-time business analytics—designed for modern digital dining.</p>
                     <div class="project-bottom">
                         <div class="project-tags">
-                            <span class="project-tag">Playwright</span>
-                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">MVC Architecture</span>
+                            <span class="project-tag">Online Ordering</span>
                         </div>
-                        <span class="project-metric">Auto-Testing</span>
+                        <span class="project-metric">JSP / Servlets</span>
                     </div>
                     <div class="project-link-wrap">
-                        <a href="https://github.com/LakinduQA/playwright_ifs.com" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                        <a href="https://github.com/kavithiS/EasyEats--Food-Ordering-Java-Web" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
                     </div>
                 </div>
 
@@ -3195,68 +2963,8 @@
                     </div>
                 </div>
 
-                <!-- Card 4 -->
-                <div class="project-card">
-                    <div class="project-top">
-                        <div class="project-icon"><i class="fas fa-sort-amount-down"></i></div>
-                        <span class="project-category">Data Validation</span>
-                    </div>
-                    <h3 class="project-title">HackerNews Sorting Test</h3>
-                    <p class="project-desc">Playwright tests validating 100 articles sorting logic. Data integrity verification with automated assertions.</p>
-                    <div class="project-bottom">
-                        <div class="project-tags">
-                            <span class="project-tag">Playwright</span>
-                            <span class="project-tag">Validation</span>
-                        </div>
-                        <span class="project-metric">100 Articles</span>
-                    </div>
-                    <div class="project-link-wrap">
-                        <a href="https://github.com/LakinduQA/hacker-news-sorting-test" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
-                    </div>
-                </div>
 
-                <!-- Card 5 -->
-                <div class="project-card">
-                    <div class="project-top">
-                        <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
-                        <span class="project-category">Security Testing</span>
-                    </div>
-                    <h3 class="project-title">Juice Shop Security Audit</h3>
-                    <p class="project-desc">Security vulnerability assessment using Burp Suite. OWASP Top 10 compliance testing and penetration testing.</p>
-                    <div class="project-bottom">
-                        <div class="project-tags">
-                            <span class="project-tag">Burp Suite</span>
-                            <span class="project-tag">OWASP</span>
-                        </div>
-                        <span class="project-metric">Secured</span>
-                    </div>
-                    <div class="project-link-wrap">
-                        <a href="https://github.com/LakinduQA/Burp-Suite_JuiceShop_Security-Testing" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
-                    </div>
-                </div>
-
-               
-
-                <!-- Card 7: Rooster Onboarding Defects -->
-                <div class="project-card">
-                    <div class="project-top">
-                        <div class="project-icon"><i class="fas fa-bug"></i></div>
-                        <span class="project-category">Defect Reports</span>
-                    </div>
-                    <h3 class="project-title">Rooster Onboarding Defects</h3>
-                    <p class="project-desc">Detailed bug reports and evidence regarding GraphQL validation failures and UI/UX issues on the Rooster Jobs talent platform.</p>
-                    <div class="project-bottom">
-                        <div class="project-tags">
-                            <span class="project-tag">Bug Reports</span>
-                            <span class="project-tag">QA Evidence</span>
-                            <span class="project-tag">Rooster Jobs</span>
-                        </div>
-                        <span class="project-metric">Investigation Ready</span>
-                    </div>
-                    <div class="project-link-wrap">
-                        <a href="https://github.com/LakinduQA/rooster-onboarding-defects" target="_blank" class="project-link"><i class="fab fa-github"></i> View on Github</a>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -3267,37 +2975,37 @@
             <div class="section-header">
                 <div class="section-tag">// KNOWLEDGE_BASE</div>
                 <h2 class="section-title" data-decrypt="true"><span>Articles</span> <span>&</span> <span>Insights</span></h2>
-                <p class="section-desc">Sharing knowledge with the QA community on Medium.</p>
+                <p class="section-desc">Sharing knowledge with the SE community on Medium.</p>
             </div>
 
             <div class="articles-grid">
                 <div class="article-card">
-                    <img src="media/Article Banners/IMG_9090.PNG" alt="Shift-Left Testing">
+                    <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*I8_dJ_9LAhOmFnUe5nuRuQ.jpeg" alt="What Starting Out as a Software Developer Has Taught Me">
                     <div class="article-content">
                         <div class="article-platform">MEDIUM</div>
-                        <h4>Shift-Left and Shift-Right Testing in QAOps</h4>
-                        <p>Understanding the mindset shift for continuous quality...</p>
-                        <a href="https://medium.com/@lakindudesilva007/shift-left-and-shift-right-testing-in-qaops-a-mindset-shift-for-continuous-quality-85ef943ed14f" target="_blank" class="article-link"><i class="fas fa-external-link-alt"></i> Read Article</a>
+                        <h4>What Starting Out as a Software Developer Has Taught Me</h4>
+                        <p>Lessons on learning, confidence, and growth from the early days of coding. Progress is quiet, but every bug fixed is a step forward.</p>
+                        <a href="https://medium.com/@kavithi.dev/what-starting-out-as-a-software-developer-has-taught-me-585a0dd9d9be" target="_blank" class="article-link"><i class="fas fa-external-link-alt"></i> Read Article</a>
                     </div>
                 </div>
 
                 <div class="article-card">
-                    <img src="media/Article Banners/IMG_9986.PNG" alt="Security Testing">
+                    <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*uLdTTYhbSaLQEaE3WSjfqg.jpeg" alt="Frontend vs Backend: What I Learned by Working on a Real System">
                     <div class="article-content">
-                        <div class="article-platform"> MEDIUM</div>
-                        <h4>Your App Works Fine. But Is It Safe?</h4>
-                        <p>Why security testing is non-negotiable for QA engineers...</p>
-                        <a href="https://medium.com/@lakindudesilva007/why-security-testing-is-non-negotiable-for-qa-engineers-9dca25195021" target="_blank" class="article-link"><i class="fas fa-external-link-alt"></i> Read Article</a>
+                        <div class="article-platform">MEDIUM</div>
+                        <h4>Frontend vs Backend: What I Learned by Working on a Real System</h4>
+                        <p>Insights from building real systems: how frontend and backend are two halves of the same conversation, and what it means for debugging and design.</p>
+                        <a href="https://medium.com/@kavithi.dev/frontend-vs-backend-what-i-learned-by-working-on-a-real-system-da40caf40a43" target="_blank" class="article-link"><i class="fas fa-external-link-alt"></i> Read Article</a>
                     </div>
                 </div>
 
                 <div class="article-card">
-                    <img src="media/Article Banners/IMG_9030.PNG" alt="Future of QA">
+                    <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*9S2X0u2ghuXELVHQ8zDOlg.jpeg" alt="Frontend Is a State Machine, Not a Design Tool">
                     <div class="article-content">
                         <div class="article-platform">MEDIUM</div>
-                        <h4>The Future of QA in the Age of AI</h4>
-                        <p>Will AI replace testers or make us stronger?</p>
-                        <a href="https://medium.com/@lakindudesilva007/the-future-of-qa-in-the-age-of-ai-will-ai-replace-testers-or-make-us-stronger-3cfb7fbcee43" target="_blank" class="article-link"><i class="fas fa-external-link-alt"></i> Read Article</a>
+                        <h4>Frontend Is a State Machine, Not a Design Tool</h4>
+                        <p>Why most frontend bugs are state issues, not design flaws. Learn how thinking in states, not screens, leads to more robust UIs.</p>
+                        <a href="https://medium.com/@kavithi.dev/frontend-is-a-state-machine-not-a-design-tool-1cf974458658" target="_blank" class="article-link"><i class="fas fa-external-link-alt"></i> Read Article</a>
                     </div>
                 </div>
             </div>
@@ -3308,131 +3016,9 @@
         </div>
     </section>
 
-    <!-- LINKEDIN JOURNEY SECTION -->
-    <section id="linkedin">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">// LINKEDIN_JOURNEY</div>
-                <h2 class="section-title" data-decrypt="true"><span>LinkedIn</span> <span>Journey</span></h2>
-                <p class="section-desc">Short reflections and posts shared on LinkedIn.</p>
-            </div>
 
-            <div class="articles-grid">
-                <div class="article-card">
-                    <img src="https://media.licdn.com/dms/image/v2/D5622AQEmoUO8uRFxsw/feedshare-shrink_800/B56Zj_bM_eG0Ak-/0/1756631983686?e=1768435200&v=beta&t=S5PYNdpsvuS-p-_PKNfSWGWtzkBmfZ9-JeF5L4xJ8Oc" alt="From QA to QE">
-                    <div class="article-content">
-                        <div class="article-platform">LINKEDIN</div>
-                        <h4>From Quality Assurance to Quality Engineering</h4>
-                        <p>Why shifting perspective helps build stronger products.</p>
-                        <a href="https://www.linkedin.com/posts/lakindu-de-silva_from-quality-assurance-to-quality-engineering-activity-7367848560391880705-mhAF?utm_medium=ios_app&rcm=ACoAAFY5zUgB9oVNc4iiB9PVHXuku8WFsYFPXac&utm_source=social_share_send&utm_campaign=copy_link" target="_blank" class="article-link linkedin-link"><span class="link-badge"><i class="fas fa-external-link-alt"></i></span> Read Post</a>
-                    </div>
-                </div>
-
-                <div class="article-card">
-                    <img src="https://media.licdn.com/dms/image/v2/D5622AQE9gLwi_xKJzQ/feedshare-shrink_800/B56ZkIxUIJHkAk-/0/1756788772253?e=1768435200&v=beta&t=jrmF1pHmy45cqHwRxgd1xfVj8d7-FQcd2OUm6GpCFvU" alt="Think Like Users">
-                    <div class="article-content">
-                        <div class="article-platform">LINKEDIN</div>
-                        <h4>Why QA Engineers Should Think Like Users</h4>
-                        <p>Designing tests from a user-centric perspective improves outcomes.</p>
-                        <a href="https://www.linkedin.com/posts/lakindu-de-silva_why-qa-engineers-should-think-like-users-activity-7368506178466664449-BauS?utm_medium=ios_app&rcm=ACoAAFY5zUgB9oVNc4iiB9PVHXuku8WFsYFPXac&utm_source=social_share_send&utm_campaign=copy_link" target="_blank" class="article-link linkedin-link"><span class="link-badge"><i class="fas fa-external-link-alt"></i></span> Read Post</a>
-                    </div>
-                </div>
-
-                <div class="article-card">
-                    <img src="https://media.licdn.com/dms/image/v2/D5622AQE5nlNj4NN_0Q/feedshare-shrink_800/B56Zpri5MbHYAg-/0/1762740901606?e=1768435200&v=beta&t=yDnpdOz58Vcwp30uRPOlgaC5UwkA2kThp7wQcsL6eaM" alt="Continuous Testing">
-                    <div class="article-content">
-                        <div class="article-platform">LINKEDIN</div>
-                        <h4>QA & Continuous Testing</h4>
-                        <p>Thoughts on continuous testing and keeping quality in the pipeline.</p>
-                        <a href="https://www.linkedin.com/posts/lakindu-de-silva_qa-qualityassurance-continuoustesting-activity-7393471221729824770-LzuZ?utm_medium=ios_app&rcm=ACoAAFY5zUgB9oVNc4iiB9PVHXuku8WFsYFPXac&utm_source=social_share_send&utm_campaign=copy_link" target="_blank" class="article-link linkedin-link"><span class="link-badge"><i class="fas fa-external-link-alt"></i></span> Read Post</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section-cta">
-                <a href="https://www.linkedin.com/in/lakindu-de-silva" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin-in"></i> View More on LinkedIn</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- HOW I WORK SECTION -->
-    <section id="process" class="timeline-section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">// MY_PROCESS</div>
-                <h2 class="section-title" data-decrypt="true"><span>How</span> <span>I</span> <span>Work</span> |</h2>
-                <p class="section-desc">Structured QA process from discovery to delivery — pragmatic testing, automation, and verification to ensure production-ready software.</p>
-            </div>
-
-            <div class="timeline-container">
-                <div class="timeline-line"></div>
-                <div class="timeline-progress" id="timelineProgress"></div>
-
-                <!-- Step 1: Identify -->
-                <div class="timeline-item right reveal-right delay-1">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <div class="timeline-icon blue"><i class="fas fa-search"></i></div>
-                        <h3>Identify</h3>
-                        <p>Gather requirements, acceptance criteria, and risk areas to define focused testing goals and scope.</p>
-                    </div>
-                </div>
-
-                <!-- Step 2: Research -->
-                <div class="timeline-item left reveal-left delay-2">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <div class="timeline-badge">test_planning</div>
-                        <div class="timeline-icon purple"><i class="fas fa-flask"></i></div>
-                        <h3>Research</h3>
-                        <p>Analyze system architecture, data flows, and past defects to uncover edge cases and coverage gaps.</p>
-                    </div>
-                </div>
-
-                <!-- Step 3: Design -->
-                <div class="timeline-item right reveal-right delay-3">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <div class="timeline-icon yellow"><i class="fas fa-drafting-compass"></i></div>
-                        <h3>Design</h3>
-                        <p>Author clear test cases, test data, and automation plans aligned to acceptance criteria and risk.</p>
-                    </div>
-                </div>
-
-                <!-- Step 4: Execute -->
-                <div class="timeline-item left reveal-left delay-4">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <div class="timeline-badge">test_execution</div>
-                        <div class="timeline-icon cyan"><i class="fas fa-play-circle"></i></div>
-                        <h3>Execute</h3>
-                        <p>Execute exploratory, manual, and automated tests (Playwright, Postman, JMeter). Validate behavior and capture logs/traces.</p>
-                    </div>
-                </div>
-
-                <!-- Step 5: Report -->
-                <div class="timeline-item right reveal-right delay-5">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <div class="timeline-icon pink"><i class="fas fa-bug"></i></div>
-                        <h3>Report</h3>
-                        <p>Log reproducible defects with steps, evidence, and severity. Triage and correlate failures to root causes.</p>
-                    </div>
-                </div>
-
-                <!-- Step 6: Deliver -->
-                <div class="timeline-item left reveal-left delay-6">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <div class="timeline-badge">quality_assured</div>
-                        <div class="timeline-icon green"><i class="fas fa-check-circle"></i></div>
-                        <h3>Deliver</h3>
-                        <p>Verify fixes, run regression suites, confirm release readiness, and sign off with test evidence and metrics.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- HOW I WORK SECTION (loaded from components/process.html) -->
+    <div id="process-root"></div>
 
     <!-- CONTACT SECTION - Terminal Interface -->
     <section id="contact">
@@ -3451,12 +3037,13 @@
                             <span class="terminal-dot yellow"></span>
                             <span class="terminal-dot green"></span>
                         </div>
-                        <span class="terminal-title">lakindu_qa_interface — -zsh</span>
+                        <span class="terminal-title">kavithi_dev_interface — -zsh</span>
                     </div>
                     <div class="terminal-body">
-                        <div class="terminal-line">Lakindu QA Protocol initialized...</div>
-                        <div class="terminal-line">Ready for inquiries. I help with <span class="highlight">Manual Testing</span>, <span class="highlight">Test Automation</span>, and <span class="highlight">Performance Testing</span>.</div>
+                        <div class="terminal-line">Kavithi Dev Protocol initialized...</div>
+                        <div class="terminal-line">Ready for inquiries. I help with <span class="highlight">Software Engineering</span>, <span class="highlight">and Web Development</span></div>
                         <div class="terminal-line">Type <span class="cmd">"email"</span> for contact info or <span class="cmd">"connect"</span> for LinkedIn.</div>
+                        <!-- Removed visible email block as requested -->
                         <div class="terminal-response" id="terminalResponse"></div>
                     </div>
                     <div class="terminal-input-area">
@@ -3472,7 +3059,7 @@
     <!-- Footer -->
     <footer class="footer-bar">
         <div class="footer-left">COORD: <span class="footer-coords" id="coords">000, 000</span></div>
-        <div class="footer-center">© 2026 LAKINDU_QA // ALL SYSTEMS OPERATIONAL</div>
+        <div class="footer-center">© 2026 KAVITHI_DEV // ALL SYSTEMS OPERATIONAL</div>
         <button class="xray-btn"><i class="fas fa-eye"></i> HOLD [SPACE] FOR X-RAY</button>
     </footer>
 
@@ -3581,16 +3168,16 @@
         const terminalSend = document.getElementById('terminalSend');
 
         const commands = {
-            'email': '📧 Email: <a href="mailto:lakindudesilva007@gmail.com">lakindudesilva007@gmail.com</a><br>Feel free to reach out anytime!',
-            'connect': '🔗 LinkedIn: <a href="https://www.linkedin.com/in/lakindu-de-silva" target="_blank">linkedin.com/in/lakindu-de-silva</a><br>Let\'s connect!',
-            'linkedin': '🔗 LinkedIn: <a href="https://www.linkedin.com/in/lakindu-de-silva" target="_blank">linkedin.com/in/lakindu-de-silva</a><br>Let\'s connect!',
-            'github': '💻 GitHub: <a href="https://github.com/LakinduQA" target="_blank">github.com/LakinduQA</a><br>Check out my projects!',
-            'medium': '📝 Medium: <a href="https://medium.com/@lakindudesilva007" target="_blank">medium.com/@lakindudesilva007</a><br>Read my QA articles!',
+            'email': '📧 Email: <a href="mailto:kavithi.thilakarathne123@gmail.com">kavithi.thilakarathne123@gmail.com</a><br>Feel free to reach out anytime!',
+            'connect': '🔗 LinkedIn: <a href="https://www.linkedin.com/in/kavithi-thilakarathne-552252327/" target="_blank">linkedin.com/in/kavithi-thilakarathne-552252327</a><br>Let\'s connect!',
+            'linkedin': '🔗 LinkedIn: <a href="https://www.linkedin.com/in/kavithi-thilakarathne-552252327/" target="_blank">linkedin.com/in/kavithi-thilakarathne-552252327</a><br>Let\'s connect!',
+            'github': '💻 GitHub: <a href="https://github.com/kavithiS" target="_blank">github.com/kavithiS</a><br>Check out my projects!',
+            'medium': '📝 Medium: <a href="https://medium.com/@kavithi.dev" target="_blank">medium.com/@kavithi_dev</a><br>Read my SE articles!',
             'help': '📋 Available commands:<br>• email - Get my email address<br>• connect / linkedin - LinkedIn profile<br>• github - GitHub profile<br>• medium - My blog articles<br>• skills - My expertise<br>• hire - Hire me for your project',
-            'skills': '🛠️ My Expertise:<br>• Manual Testing & Exploratory Testing<br>• Test Automation (Playwright, JavaScript)<br>• API Testing (Postman)<br>• Security Testing (Burp Suite)<br>• CI/CD Integration',
-            'hire': '🚀 Looking for a QA Engineer?<br>I\'m available for:<br>• Full-time opportunities<br>• Freelance projects<br>• Internships<br><br>📧 <a href="mailto:lakindudesilva007@gmail.com">lakindudesilva007@gmail.com</a>',
-            'hello': '👋 Hey there! I\'m Lakindu, a QA Engineer. Type "help" to see what I can do!',
-            'hi': '👋 Hey there! I\'m Lakindu, a QA Engineer. Type "help" to see what I can do!'
+            'skills': '🛠️ My Expertise:<br>• Java, Python, JavaScript/TypeScript, SQL, C, C++, HTML, CSS, PHP, Kotlin, R<br>• Node.js, Express.js, RESTful APIs<br>• React, Next.js, Tailwind CSS<br>• MySQL, MongoDB<br>• Git, VS Code, Postman, Jupyter<br>• Numpy, Matplotlib',
+            'hire': '🚀 Looking for a Software Engineer?<br>I\'m available for:<br>• Full-time opportunities<br>• Freelance projects<br>• Internships<br><br>📧 <a href="mailto:kavithi.thilakarathne123@gmail.com">kavithi.thilakarathne123@gmail.com</a>',
+            'hello': '👋 Hey there! I\'m Kavithi, a Software Engineer. Type "help" to see what I can do!',
+            'hi': '👋 Hey there! I\'m Kavithi, a Software Engineer. Type "help" to see what I can do!'
         };
 
         function processCommand() {
@@ -3673,7 +3260,7 @@
                 { pos: 0.333, color: '#d29922' },  // Yellow - Design
                 { pos: 0.5, color: '#39c5cf' },    // Cyan - Execute
                 { pos: 0.666, color: '#ff7b92' },  // Pink - Report
-                { pos: 0.833, color: '#3fb950' },  // Green - Deliver
+                { pos: 0.833, color: '#5A9CB5' },  // Green - Deliver
                 { pos: 1, color: '#3fb950' }
             ];
 
@@ -3713,44 +3300,7 @@
         window.addEventListener('load', animateTimelineLine);
         window.addEventListener('resize', animateTimelineLine);
     </script>
-    <script>
-    // Ensure the animated banner appears before the hero on small screens
-    (function(){
-        const banner = document.getElementById('animated-banner');
-        const hero = document.getElementById('home');
-        if(!banner || !hero) return;
-        const parent = hero.parentNode;
-        const MOBILE_QUERY = '(max-width: 768px)';
-        const mql = window.matchMedia(MOBILE_QUERY);
-
-        function debounce(fn, wait){ let t; return function(){ clearTimeout(t); t = setTimeout(() => fn(), wait); }; }
-
-        function moveForMobile(){
-            try{
-                if(mql.matches){
-                    if(parent.firstElementChild !== banner){ parent.insertBefore(banner, hero); }
-                    banner.classList.add('mobile-first');
-                } else {
-                    if(hero.nextSibling !== banner){ parent.insertBefore(banner, hero.nextSibling); }
-                    banner.classList.remove('mobile-first');
-                }
-            }catch(e){/* noop */}
-        }
-
-        // Initial and deferred attempts in case of late DOM changes
-        moveForMobile();
-        setTimeout(moveForMobile, 50);
-        setTimeout(moveForMobile, 300);
-
-        if (mql.addEventListener) mql.addEventListener('change', moveForMobile);
-        else if (mql.addListener) mql.addListener(moveForMobile);
-        window.addEventListener('resize', debounce(moveForMobile, 120));
-        window.addEventListener('orientationchange', moveForMobile);
-
-        const mo = new MutationObserver(() => { setTimeout(moveForMobile, 60); });
-        mo.observe(parent, { childList: true });
-    })();
-    </script>
+    <script src="assets/js/process.js" defer></script>
     <script>
     // Decrypt-style hero title animation (preserve original span lines) with spacer animation
     document.addEventListener('DOMContentLoaded', () => {
